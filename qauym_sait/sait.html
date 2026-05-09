@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>QAUYM MEDIA — Digital Production Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #050C18;
+  --bg2: #070F1F;
+  --bg3: #0A1628;
+  --card: rgba(10,22,44,0.7);
+  --border: rgba(160,210,255,0.1);
+  --border2: rgba(160,210,255,0.18);
+  --cyan: #A0D2FF;
+  --cyan2: #C8E8FF;
+  --cyan-glow: #5BB8FF;
+  --text: #D8EAF8;
+  --text2: #7A9BB8;
+  --text3: #4A6880;
+  --white: #EFF8FF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden;}
+::selection{background:rgba(160,210,255,0.2);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:rgba(160,210,255,0.2);border-radius:9999px;}
+
+@keyframes fadeInUp{0%{opacity:0;transform:translateY(28px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+@keyframes slideInUp{0%{opacity:0;transform:translateY(60px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes lineExpand{0%{width:0;}100%{width:100%;}}
+
+.anim{opacity:0;}
+.anim.visible{animation:fadeInUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;transition:background 0.3s,border-color 0.3s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(5,12,24,0.92);backdrop-filter:blur(24px);border-color:var(--border);}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{width:38px;height:38px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(91,184,255,0.5));}
+.nav-logo-text{font-size:17px;font-weight:800;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;}
+.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links a{font-size:12px;font-weight:600;color:rgba(216,234,248,0.6);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan2);}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;border-radius:9999px;cursor:pointer;border:none;text-decoration:none;transition:transform 0.2s,opacity 0.2s,box-shadow 0.2s;white-space:nowrap;}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:scale(0.97);}
+.btn-primary{background:linear-gradient(135deg,var(--cyan2) 0%,var(--cyan-glow) 100%);color:var(--bg);padding:12px 28px;box-shadow:0 4px 20px rgba(91,184,255,0.3),inset 0 1px 0 rgba(255,255,255,0.3);}
+.btn-primary:hover{box-shadow:0 0 40px rgba(91,184,255,0.5);}
+.btn-secondary{background:rgba(160,210,255,0.06);color:var(--cyan2);padding:12px 28px;border:1px solid var(--border2);}
+.btn-ghost{background:transparent;color:var(--text2);padding:10px 20px;border:1px solid var(--border);font-size:13px;}
+
+main{position:relative;z-index:2;}
+
+/* ═══ HERO VIDEO ═══ */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-video-wrap{
+  position:absolute;inset:0;
+  z-index:0;
+}
+.hero-video-wrap video{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.55;
+}
+/* Gradient overlay — dark bottom for text, subtle top */
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to top, rgba(5,12,24,1) 0%, rgba(5,12,24,0.75) 35%, rgba(5,12,24,0.3) 65%, rgba(5,12,24,0.5) 100%);
+}
+/* Left side vignette */
+.hero-overlay-left{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to right, rgba(5,12,24,0.6) 0%, transparent 50%);
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1400px;width:100%;margin:0 auto;
+  padding:0 48px 80px;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 18px;border-radius:9999px;
+  border:1px solid rgba(160,210,255,0.25);
+  background:rgba(160,210,255,0.06);
+  color:var(--cyan2);font-size:11px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+  margin-bottom:28px;
+  opacity:0;animation:fadeIn 0.8s 0.3s ease forwards;
+  backdrop-filter:blur(8px);
+}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-glow);box-shadow:0 0 10px var(--cyan-glow);animation:blink 2s infinite;}
+
+.hero-title{
+  font-size:clamp(52px,8vw,110px);
+  font-weight:800;
+  letter-spacing:-0.04em;
+  line-height:0.92;
+  color:var(--white);
+  margin-bottom:12px;
+  opacity:0;animation:slideInUp 0.9s 0.45s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.hero-title span{
+  display:block;
+  background:linear-gradient(135deg,var(--white) 0%,var(--cyan2) 50%,var(--cyan-glow) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-title em{
+  font-style:italic;font-size:0.65em;
+  display:block;
+  color:rgba(200,232,255,0.5);
+  -webkit-text-fill-color:rgba(200,232,255,0.5);
+  letter-spacing:0.02em;
+  font-family:'JetBrains Mono',monospace;
+  font-weight:400;
+  margin-bottom:8px;
+  font-size:clamp(14px,1.5vw,22px);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+}
+
+.hero-desc-row{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:48px;flex-wrap:wrap;
+  margin-top:32px;
+  opacity:0;animation:fadeInUp 0.8s 0.7s ease forwards;
+}
+.hero-desc{
+  font-size:16px;line-height:1.75;color:rgba(216,234,248,0.7);
+  max-width:500px;
+}
+.hero-desc strong{color:var(--cyan2);font-weight:700;}
+
+.hero-actions{
+  display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+  opacity:0;animation:fadeInUp 0.8s 0.85s ease forwards;
+  margin-top:32px;
+}
+
+.hero-stats{
+  display:flex;gap:0;
+  opacity:0;animation:fadeInUp 0.7s 1s ease forwards;
+  margin-top:40px;
+  border-top:1px solid rgba(160,210,255,0.1);
+  padding-top:32px;
+}
+.hero-stat{
+  padding:0 40px 0 0;
+  border-right:1px solid rgba(160,210,255,0.08);
+  margin-right:40px;
+}
+.hero-stat:last-child{border-right:none;margin-right:0;}
+.hero-stat-num{
+  font-size:34px;font-weight:800;letter-spacing:-0.03em;
+  background:linear-gradient(135deg,var(--white),var(--cyan2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.hero-stat-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;font-family:'JetBrains Mono',monospace;}
+
+/* ═══ MARQUEE ═══ */
+.marquee-section{position:relative;z-index:2;margin-top:-2px;}
+.marquee-wrap{width:100%;overflow:hidden;padding:4px 0;background:var(--bg);position:relative;}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+.marquee-track{display:flex;animation:marquee 35s linear infinite;width:max-content;}
+.marquee-track img{height:240px;object-fit:cover;margin:0 10px;border-radius:18px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4);flex-shrink:0;}
+
+/* ═══ SECTION COMMONS ═══ */
+.section{max-width:1400px;margin:0 auto;padding:100px 48px;}
+.section-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:var(--cyan-glow);opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;}
+.section-title{font-size:clamp(36px,4vw,56px);font-weight:800;letter-spacing:-0.025em;line-height:1.05;color:var(--white);margin-bottom:16px;}
+.section-title em{font-style:italic;background:linear-gradient(135deg,var(--cyan2),var(--cyan-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-desc{font-size:16px;color:var(--text2);line-height:1.7;max-width:560px;margin-bottom:56px;}
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(160,210,255,0.08),transparent);margin:0 auto;max-width:90%;}
+
+/* ═══ SERVICES ═══ */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:1000px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+.service-card{background:var(--card);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:28px;padding:32px;cursor:pointer;transition:all 0.35s cubic-bezier(0.22,0.68,0,1.2);position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(91,184,255,0.04),transparent);opacity:0;transition:opacity 0.3s;border-radius:inherit;}
+.service-card:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(160,210,255,0.3);box-shadow:0 24px 48px rgba(0,0,0,0.5),0 0 0 1px rgba(160,210,255,0.15);}
+.service-card:hover::before{opacity:1;}
+.service-card.wide{grid-column:span 2;}
+@media(max-width:1000px){.service-card.wide{grid-column:span 1;}}
+.service-icon{font-size:40px;margin-bottom:20px;display:block;filter:drop-shadow(0 0 12px rgba(160,210,255,0.4));animation:floatY 3s ease-in-out infinite;}
+.service-name{font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px;}
+.service-preview{font-size:14px;color:var(--text2);line-height:1.65;}
+.service-arrow{position:absolute;top:28px;right:28px;color:var(--cyan-glow);opacity:0;transition:opacity 0.2s,transform 0.2s;font-size:20px;}
+.service-card:hover .service-arrow{opacity:1;transform:translate(2px,-2px);}
+.service-hint{display:inline-block;margin-top:20px;font-size:11px;font-weight:700;color:var(--cyan2);opacity:0;text-transform:uppercase;letter-spacing:0.07em;transition:opacity 0.2s;font-family:'JetBrains Mono',monospace;}
+.service-card:hover .service-hint{opacity:0.7;}
+
+/* ═══ ABOUT ═══ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+.about-values{display:flex;flex-direction:column;gap:16px;}
+.about-val{display:flex;align-items:flex-start;gap:18px;padding:22px 24px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:20px;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;}
+.about-val:hover{border-color:var(--border2);transform:translateX(4px);box-shadow:0 8px 32px rgba(0,0,0,0.3);}
+.about-val-icon-wrap{
+  width:44px;height:44px;flex-shrink:0;
+  border-radius:14px;
+  background:rgba(91,184,255,0.08);
+  border:1px solid rgba(91,184,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+  transition:background 0.25s,box-shadow 0.25s;
+}
+.about-val:hover .about-val-icon-wrap{background:rgba(91,184,255,0.14);box-shadow:0 0 16px rgba(91,184,255,0.2);}
+.about-val-icon-wrap svg{width:22px;height:22px;}
+.about-val-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.about-val-desc{font-size:13px;color:var(--text2);line-height:1.55;}
+.about-team-card{background:var(--card);border:1px solid var(--border);border-radius:32px;padding:40px;text-align:center;position:relative;overflow:hidden;}
+.about-team-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(160,210,255,0.3),transparent);}
+.about-team-img{width:120px;height:120px;border-radius:50%;margin:0 auto 20px;overflow:hidden;border:2px solid rgba(160,210,255,0.2);box-shadow:0 0 40px rgba(91,184,255,0.2),0 0 0 6px rgba(91,184,255,0.05);}
+.about-team-img img{width:100%;height:100%;object-fit:cover;}
+.about-team-name{font-size:22px;font-weight:800;color:var(--white);margin-bottom:6px;}
+.about-team-role{font-size:12px;color:var(--cyan-glow);opacity:0.7;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:20px;}
+.about-team-bio{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:24px;}
+.about-team-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.about-team-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+.about-team-stat{padding:14px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;}
+.about-team-stat-num{font-size:22px;font-weight:800;background:linear-gradient(135deg,var(--white),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.about-team-stat-label{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;font-family:'JetBrains Mono',monospace;}
+
+/* ═══ CASES ═══ */
+.cases-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+.filter-btn{padding:9px 22px;border-radius:9999px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border);color:var(--text3);background:transparent;cursor:pointer;transition:all 0.2s;font-family:'Manrope',sans-serif;}
+.filter-btn:hover{color:var(--text);border-color:var(--border2);}
+.filter-btn.active{background:rgba(160,210,255,0.1);border-color:rgba(160,210,255,0.3);color:var(--cyan2);}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:1000px){.cases-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.cases-grid{grid-template-columns:1fr;}}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:28px;overflow:hidden;cursor:pointer;transition:all 0.35s cubic-bezier(0.22,0.68,0,1.2);position:relative;}
+.case-card:hover{transform:translateY(-8px) scale(1.01);border-color:rgba(160,210,255,0.25);box-shadow:0 28px 56px rgba(0,0,0,0.6);}
+.case-img-wrap{height:240px;overflow:hidden;position:relative;}
+.case-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.22,0.68,0,1.4);}
+.case-card:hover .case-img-wrap img{transform:scale(1.08);}
+.case-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,12,24,0.9) 0%,rgba(5,12,24,0.4) 50%,transparent 100%);}
+.case-open-hint{position:absolute;top:14px;right:14px;background:rgba(160,210,255,0.12);border:1px solid rgba(160,210,255,0.25);border-radius:9999px;padding:5px 14px;font-size:10px;font-weight:700;color:var(--cyan2);letter-spacing:0.07em;text-transform:uppercase;opacity:0;transform:translateY(-4px);transition:all 0.25s;font-family:'JetBrains Mono',monospace;}
+.case-card:hover .case-open-hint{opacity:1;transform:translateY(0);}
+.case-body{padding:24px;}
+.case-result{font-size:30px;font-weight:800;line-height:1;margin-bottom:10px;letter-spacing:-0.02em;}
+.case-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.4;}
+.case-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);font-size:10px;font-weight:700;color:var(--text2);letter-spacing:0.06em;text-transform:uppercase;}
+
+/* ═══ TRUST — NUMBERS ═══ */
+.trust-section{padding:80px 48px;max-width:1400px;margin:0 auto;}
+.trust-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+.trust-num-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:40px 32px;
+  transition:border-color 0.3s,transform 0.3s;
+  position:relative;overflow:hidden;
+}
+.trust-num-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan-glow),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.trust-num-card:hover{border-color:var(--border2);transform:translateY(-4px);}
+.trust-num-card:hover::before{opacity:1;}
+.trust-num{
+  font-size:48px;font-weight:800;letter-spacing:-0.03em;line-height:1;
+  background:linear-gradient(135deg,var(--white),var(--cyan2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:12px;
+}
+.trust-label{font-size:14px;font-weight:600;color:var(--text2);line-height:1.5;}
+.trust-sublabel{font-size:11px;color:var(--text3);margin-top:6px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.06em;}
+
+/* clients scroll */
+.clients-section{padding:0 48px 80px;max-width:1400px;margin:0 auto;}
+.clients-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:24px;}
+.clients-scroll-wrap{overflow:hidden;position:relative;}
+.clients-scroll-wrap::before,.clients-scroll-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;}
+.clients-scroll-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+.clients-scroll-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+.clients-track{display:flex;gap:28px;animation:marquee 18s linear infinite;width:max-content;}
+.client-chip{display:flex;align-items:center;gap:10px;padding:10px 20px;border-radius:9999px;border:1px solid var(--border);background:rgba(160,210,255,0.03);white-space:nowrap;flex-shrink:0;}
+.client-chip-dot{width:5px;height:5px;border-radius:50%;background:var(--cyan-glow);}
+.client-chip-name{font-size:13px;font-weight:700;color:var(--text2);}
+
+/* ═══ PROCESS ═══ */
+.process-section{padding:100px 48px;max-width:1400px;margin:0 auto;}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;}
+@media(max-width:1000px){.process-steps{grid-template-columns:1fr 1fr;gap:0;}}
+@media(max-width:500px){.process-steps{grid-template-columns:1fr;}}
+
+/* connector line */
+.process-steps::before{
+  content:'';
+  position:absolute;
+  top:36px;left:10%;right:10%;height:1px;
+  background:linear-gradient(to right,transparent,rgba(160,210,255,0.15) 20%,rgba(160,210,255,0.15) 80%,transparent);
+  pointer-events:none;
+}
+@media(max-width:1000px){.process-steps::before{display:none;}}
+
+.process-step{
+  padding:0 20px 48px;
+  text-align:center;
+  position:relative;
+}
+.process-step-icon-wrap{
+  width:72px;height:72px;
+  border-radius:50%;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  position:relative;z-index:1;
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.process-step:hover .process-step-icon-wrap{
+  border-color:rgba(160,210,255,0.3);
+  box-shadow:0 0 24px rgba(91,184,255,0.15);
+}
+/* SVG icons for each step */
+.process-step-icon-wrap svg{width:30px;height:30px;}
+.process-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:var(--cyan-glow);opacity:0.5;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+.process-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.process-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* ═══ FAQ ═══ */
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:900px;}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden;}
+.faq-item:first-child{border-top:1px solid var(--border);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:28px 0;cursor:pointer;gap:20px;}
+.faq-q-text{font-size:17px;font-weight:600;color:var(--white);transition:color 0.2s;}
+.faq-item.open .faq-q-text{color:var(--cyan2);}
+.faq-icon{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--text2);transition:all 0.3s;flex-shrink:0;}
+.faq-item.open .faq-icon{background:rgba(160,210,255,0.08);border-color:var(--border2);color:var(--cyan2);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a-inner{padding:0 0 28px;font-size:15px;color:var(--text2);line-height:1.75;}
+
+/* ═══ PARTNER BIG CTA ═══ */
+.partner-section{padding:80px 48px;}
+.partner-inner{max-width:1400px;margin:0 auto;background:var(--bg3);border:1px solid rgba(160,210,255,0.08);border-radius:48px;padding:120px 80px;text-align:center;position:relative;overflow:hidden;box-shadow:0 0 120px rgba(91,184,255,0.04),0 48px 96px rgba(0,0,0,0.6);cursor:crosshair;}
+.partner-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(91,184,255,0.06) 0%,transparent 60%);pointer-events:none;}
+.partner-title{font-size:clamp(48px,8vw,100px);font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--white);margin-bottom:48px;position:relative;z-index:2;}
+.partner-title em{font-style:italic;background:linear-gradient(135deg,var(--cyan2),var(--cyan-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.partner-cta{position:relative;z-index:2;display:inline-flex;align-items:center;gap:14px;}
+.trail-img{position:absolute;border-radius:12px;pointer-events:none;object-fit:cover;z-index:10;transition:opacity 0.9s ease,transform 0.9s ease;box-shadow:0 8px 24px rgba(0,0,0,0.5);}
+
+/* ═══ CTA / CONTACT ═══ */
+.cta-section{padding:80px 48px;max-width:1400px;margin:0 auto;}
+.cta-inner{background:var(--bg3);border:1px solid rgba(160,210,255,0.08);border-radius:48px;padding:80px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden;}
+@media(max-width:900px){.cta-inner{grid-template-columns:1fr;gap:48px;padding:48px 32px;}}
+.cta-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(91,184,255,0.05) 0%,transparent 60%);pointer-events:none;}
+.cta-title{font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-0.035em;line-height:1;color:var(--white);margin-bottom:20px;}
+.cta-title em{font-style:italic;background:linear-gradient(135deg,var(--cyan2),var(--cyan-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.cta-sub{font-size:16px;color:var(--text2);line-height:1.65;margin-bottom:32px;}
+.cta-promise{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--cyan-glow);font-weight:700;font-family:'JetBrains Mono',monospace;}
+.cta-promise-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-glow);box-shadow:0 0 8px var(--cyan-glow);animation:blink 1.5s infinite;}
+.cta-form{display:flex;flex-direction:column;gap:14px;position:relative;z-index:2;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-label{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;}
+.form-input,.form-select,.form-textarea{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;padding:14px 18px;font-size:14px;color:var(--text);font-family:'Manrope',sans-serif;transition:border-color 0.2s,box-shadow 0.2s;outline:none;width:100%;}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(160,210,255,0.35);box-shadow:0 0 0 4px rgba(91,184,255,0.08);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text3);}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234A6880' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-select option{background:#0A1628;color:var(--text);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-submit{width:100%;padding:16px;font-size:15px;justify-content:center;margin-top:4px;}
+.messengers-row{display:flex;gap:12px;margin-top:8px;}
+.messenger-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:14px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;border:1px solid var(--border);}
+.messenger-btn:hover{transform:translateY(-2px);}
+.whatsapp-btn{background:rgba(37,211,102,0.08);color:#25D366;border-color:rgba(37,211,102,0.2);}
+.whatsapp-btn:hover{background:rgba(37,211,102,0.14);box-shadow:0 4px 20px rgba(37,211,102,0.15);}
+.telegram-btn{background:rgba(0,136,204,0.08);color:#0088CC;border-color:rgba(0,136,204,0.2);}
+.telegram-btn:hover{background:rgba(0,136,204,0.14);box-shadow:0 4px 20px rgba(0,136,204,0.15);}
+
+/* ═══ FOOTER ═══ */
+footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px solid var(--border);}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px;margin-bottom:48px;}
+.footer-brand{max-width:280px;}
+.footer-brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.footer-brand-logo img{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(91,184,255,0.4));}
+.footer-brand-name{font-size:16px;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:0.06em;}
+.footer-brand-desc{font-size:13px;color:var(--text3);line-height:1.6;}
+.footer-links-group{display:flex;gap:60px;}
+.footer-col-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:18px;}
+.footer-col{display:flex;flex-direction:column;gap:14px;}
+.footer-col a{font-size:14px;color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.footer-col a:hover{color:var(--cyan2);}
+.copyright-bar{display:flex;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--text3);}
+
+/* ═══ BOTTOM NAV ═══ */
+.bottom-nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(5,12,24,0.88);backdrop-filter:blur(24px);border-radius:9999px;padding:10px 10px 10px 20px;display:flex;align-items:center;gap:16px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.05);white-space:nowrap;}
+.bottom-nav-logo{display:flex;align-items:center;gap:8px;}
+.bottom-nav-logo img{width:26px;height:26px;object-fit:contain;filter:drop-shadow(0 0 5px rgba(91,184,255,0.5));}
+
+/* ═══ MODAL ═══ */
+.modal-overlay{position:fixed;inset:0;z-index:300;background:rgba(3,8,18,0.88);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity 0.3s;}
+.modal-overlay.open{display:flex;}
+.modal-overlay.visible{opacity:1;}
+.modal-box{background:#0A1628;border:1px solid var(--border2);border-radius:36px;width:100%;max-width:820px;max-height:88vh;overflow-y:auto;position:relative;transform:translateY(28px) scale(0.97);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);scrollbar-width:thin;scrollbar-color:rgba(160,210,255,0.2) transparent;}
+.modal-overlay.visible .modal-box{transform:translateY(0) scale(1);}
+.modal-close{position:absolute;top:20px;right:20px;z-index:10;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--text2);transition:all 0.2s;}
+.modal-close:hover{background:rgba(255,255,255,0.12);transform:rotate(90deg);}
+.modal-hero{height:300px;border-radius:34px 34px 0 0;overflow:hidden;position:relative;}
+.modal-hero img{width:100%;height:100%;object-fit:cover;}
+.modal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,#0A1628 0%,transparent 60%);}
+.modal-body{padding:36px 40px 48px;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.modal-title{font-size:clamp(24px,4vw,38px);font-weight:800;color:var(--white);letter-spacing:-0.02em;margin-bottom:18px;}
+.modal-desc{font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:32px;}
+.modal-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:32px;}
+.metric-block{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:18px;padding:18px;text-align:center;}
+.metric-val{font-size:26px;font-weight:800;background:linear-gradient(135deg,var(--white),var(--cyan2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.metric-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-top:6px;}
+.modal-details-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;margin-bottom:14px;}
+.modal-detail-row{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.modal-detail-row:last-child{border-bottom:none;}
+.check-icon{color:var(--cyan-glow);font-size:16px;flex-shrink:0;margin-top:2px;}
+.modal-detail-text{font-size:14px;color:var(--text);line-height:1.5;}
+.modal-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-inner{padding:16px 24px;}
+  .hero-content{padding:0 24px 60px;}
+  .section{padding:80px 24px;}
+  .process-section,.trust-section,.clients-section,.cta-section,.partner-section{padding-left:24px;padding-right:24px;}
+  footer{padding:60px 24px 32px;}
+  .bottom-nav{bottom:16px;}
+  .form-row{grid-template-columns:1fr;}
+  .hero-stats{flex-wrap:wrap;gap:24px;}
+  .hero-stat{border-right:none;margin-right:0;padding-right:0;}
+}
+@media(max-width:500px){
+  .process-steps{grid-template-columns:1fr;}
+  .trust-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="IMG_2265.PNG" alt="QAUYM"/>
+      <span class="nav-logo-text">QAUYM MEDIA</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#about">О нас</a>
+      <a href="#process">Подход</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:10px 22px;">Начать проект</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ HERO VIDEO ═══ -->
+<section class="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="hero-bg.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-left"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Digital Production Studio · Алматы
+    </div>
+
+    <div class="hero-title">
+      <em>// контент · маркетинг · результат</em>
+      <span>QAUYM</span>
+      <span>MEDIA</span>
+    </div>
+
+    <div class="hero-desc-row">
+      <p class="hero-desc">
+        Команда с <strong>5-летним опытом</strong> в digital-маркетинге. Создаём контент, строим аудитории, приводим клиентов. Каждый проект — лично и без потери качества.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:15px 34px;">Начать проект →</a>
+        <a href="#cases" class="btn btn-secondary">Смотреть кейсы</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">150M+</div>
+        <div class="hero-stat-label">просмотров</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2 000+</div>
+        <div class="hero-stat-label">клиентов</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">98%</div>
+        <div class="hero-stat-label">retention</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">×3.8</div>
+        <div class="hero-stat-label">средний ROI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-section">
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" alt=""/>
+      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" alt=""/>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="section" id="services">
+  <div class="anim">
+    <div class="section-tag">// что мы делаем</div>
+    <h2 class="section-title">Наши <em>Сервисы</em></h2>
+    <p class="section-desc">Нажмите на карточку, чтобы узнать подробнее о каждой услуге.</p>
+  </div>
+  <div class="services-grid anim" style="animation-delay:0.15s">
+    <div class="service-card wide" onclick="openServiceModal(0)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">🎬</span>
+      <div class="service-name">Продюсирование</div>
+      <div class="service-preview">Полный цикл создания контента: от стратегии и сценариев до финального продакшена. Берём на себя все смыслы вашего бренда и воплощаем их в контент, который работает и приносит результат.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+    <div class="service-card" onclick="openServiceModal(1)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">📱</span>
+      <div class="service-name">Reels & TikTok</div>
+      <div class="service-preview">Виральный контент, который захватывает внимание с первой секунды. Знаем алгоритмы и умеем системно выходить в рекомендации.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+    <div class="service-card" onclick="openServiceModal(2)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">🤖</span>
+      <div class="service-name">AI Продакшн</div>
+      <div class="service-preview">Контент нового поколения с помощью нейросетей. AI-видео, AI-изображения, AI-озвучка — быстрее и дешевле без потери качества.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+    <div class="service-card wide" onclick="openServiceModal(3)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">🌐</span>
+      <div class="service-name">SMM 360°</div>
+      <div class="service-preview">Стратегическое управление социальными сетями под ключ. Строим активные сообщества вокруг вашего продукта, которые становятся двигателем роста и продаж на всех платформах.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+    <div class="service-card wide" onclick="openServiceModal(4)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">💬</span>
+      <div class="service-name">AI Ассистент</div>
+      <div class="service-preview">Разрабатываем и внедряем кастомных AI-ботов, которые автоматизируют коммуникации, квалифицируют лиды и помогают закрывать сделки 24/7 без участия менеджеров. Интеграция с Telegram, WhatsApp, Instagram и CRM.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+    <div class="service-card" onclick="openServiceModal(5)">
+      <span class="service-arrow">↗</span>
+      <span class="service-icon">✨</span>
+      <div class="service-name">Инд. решения</div>
+      <div class="service-preview">Спецпроекты, брендинг, запуск продуктов с нуля. Берёмся за задачи любой сложности.</div>
+      <div class="service-hint">Подробнее →</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CASES ═══ -->
+<section class="section" id="cases">
+  <div class="anim">
+    <div class="section-tag">// наши работы</div>
+    <h2 class="section-title">Кейсы <em>Результатов</em></h2>
+    <p class="section-desc">Реальные результаты реальных клиентов. Нажмите на карточку, чтобы увидеть детали кейса.</p>
+  </div>
+  <div class="cases-filters anim" style="animation-delay:0.1s">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="smm">SMM</button>
+    <button class="filter-btn" data-filter="video">Video</button>
+    <button class="filter-btn" data-filter="ai">AI</button>
+    <button class="filter-btn" data-filter="brand">Branding</button>
+    <button class="filter-btn" data-filter="ecom">E-commerce</button>
+  </div>
+  <div class="cases-grid anim" style="animation-delay:0.2s" id="cases-grid"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TRUST — NUMBERS ═══ -->
+<div class="trust-section anim">
+  <div class="section-tag" style="margin-bottom:12px">// в цифрах</div>
+  <h2 class="section-title" style="margin-bottom:48px">Результаты, <em>которые говорят</em></h2>
+  <div class="trust-grid">
+    <div class="trust-num-card">
+      <div class="trust-num">150M+</div>
+      <div class="trust-label">просмотров контента</div>
+      <div class="trust-sublabel">за 2023–2024</div>
+    </div>
+    <div class="trust-num-card">
+      <div class="trust-num">2 000+</div>
+      <div class="trust-label">довольных клиентов</div>
+      <div class="trust-sublabel">за 5 лет работы</div>
+    </div>
+    <div class="trust-num-card">
+      <div class="trust-num">98%</div>
+      <div class="trust-label">продолжают работу</div>
+      <div class="trust-sublabel">после первого месяца</div>
+    </div>
+    <div class="trust-num-card">
+      <div class="trust-num">×3.8</div>
+      <div class="trust-label">средний ROI</div>
+      <div class="trust-sublabel">наших клиентов</div>
+    </div>
+  </div>
+</div>
+
+<!-- clients scroll -->
+<div class="clients-section anim">
+  <div class="clients-label">Нам доверяют</div>
+  <div class="clients-scroll-wrap">
+    <div class="clients-track">
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Halyk Bank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kaspi</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Freedom Finance</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Jusan Bank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">ForteBank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kolesa.kz</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Chocofood</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Airba Fresh</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Halyk Bank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kaspi</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Freedom Finance</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Jusan Bank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">ForteBank</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kolesa.kz</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Chocofood</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Airba Fresh</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="section" id="about">
+  <div class="anim">
+    <div class="section-tag">// кто мы</div>
+    <h2 class="section-title">О <em>нас</em></h2>
+    <p class="section-desc">Компактная студия с большим опытом. Мы не просто агентство — мы партнёры в росте вашего бренда.</p>
+  </div>
+  <div class="about-grid anim" style="animation-delay:0.15s">
+    <div class="about-values">
+      <div class="about-val">
+        <div class="about-val-icon-wrap">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="4" stroke="#5BB8FF" stroke-width="1.8"/>
+            <path d="M11 3 L11 1M11 21 L11 19M3 11 L1 11M21 11 L19 11M5.2 5.2 L3.8 3.8M18.8 18.8 L17.4 17.4M18.8 5.2 L17.4 6.6M5.2 18.8 L3.8 17.4" stroke="#A0D2FF" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="about-val-title">Результат, а не отчёты</div>
+          <div class="about-val-desc">Мы измеряем успех в реальных метриках: просмотрах, лидах, продажах. Никаких красивых слайдов без цифр.</div>
+        </div>
+      </div>
+      <div class="about-val">
+        <div class="about-val-icon-wrap">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="4" stroke="#5BB8FF" stroke-width="1.8"/>
+            <circle cx="15" cy="14" r="4" stroke="#A0D2FF" stroke-width="1.8" opacity="0.7"/>
+            <path d="M11.5 10.5 L12.5 11.5" stroke="#C8E8FF" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="about-val-title">Личное ведение</div>
+          <div class="about-val-desc">Каждый проект ведёт лично основатель. Вы всегда знаете, кто за что отвечает, и можете связаться в любой момент.</div>
+        </div>
+      </div>
+      <div class="about-val">
+        <div class="about-val-icon-wrap">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 3 L13.5 8.5 L19.5 9.3 L15 13.5 L16.2 19.5 L11 16.5 L5.8 19.5 L7 13.5 L2.5 9.3 L8.5 8.5 Z" stroke="#5BB8FF" stroke-width="1.8" stroke-linejoin="round" fill="rgba(91,184,255,0.08)"/>
+          </svg>
+        </div>
+        <div>
+          <div class="about-val-title">Скорость без компромиссов</div>
+          <div class="about-val-desc">Команда проверенных специалистов работает быстро и синхронно. Сроки соблюдаем всегда — это не пустые слова.</div>
+        </div>
+      </div>
+      <div class="about-val">
+        <div class="about-val-icon-wrap">
+          <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" rx="2" stroke="#5BB8FF" stroke-width="1.8"/>
+            <rect x="12" y="3" width="7" height="7" rx="2" stroke="#A0D2FF" stroke-width="1.8" opacity="0.8"/>
+            <rect x="3" y="12" width="7" height="7" rx="2" stroke="#A0D2FF" stroke-width="1.8" opacity="0.8"/>
+            <path d="M14 15.5 L15.5 17 L18.5 13.5" stroke="#5BB8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="about-val-title">Технологии + творчество</div>
+          <div class="about-val-desc">Используем AI и новейшие инструменты продакшна, но главное — это идеи и стратегическое мышление команды.</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-team-card">
+      <div class="about-team-img">
+        <img src="logo.jpeg" alt="Founder"/>
+      </div>
+      <div class="about-team-name">Основатель QAUYM</div>
+      <div class="about-team-role">// CEO & Creative Director</div>
+      <div class="about-team-stat-row">
+        <div class="about-team-stat">
+          <div class="about-team-stat-num">5 лет</div>
+          <div class="about-team-stat-label">в digital</div>
+        </div>
+        <div class="about-team-stat">
+          <div class="about-team-stat-num">2000+</div>
+          <div class="about-team-stat-label">клиентов</div>
+        </div>
+      </div>
+      <div class="about-team-bio">Работал с брендами из финтех, ритейл, beauty и tech. Ушёл из найма, чтобы строить студию, где качество важнее количества клиентов.</div>
+      <div class="about-team-tags">
+        <span class="tag">Стратегия</span>
+        <span class="tag">Продакшн</span>
+        <span class="tag">AI-маркетинг</span>
+        <span class="tag">SMM</span>
+        <span class="tag">Branding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PROCESS ═══ -->
+<div class="process-section" id="process">
+  <div class="anim">
+    <div class="section-tag">// наш подход</div>
+    <h2 class="section-title">Как мы <em>работаем</em></h2>
+    <p class="section-desc">Прозрачный процесс от первого контакта до измеримого результата.</p>
+  </div>
+  <div class="process-steps anim" style="animation-delay:0.15s">
+    <div class="process-step">
+      <div class="process-step-icon-wrap">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="13" cy="13" r="7" stroke="#5BB8FF" stroke-width="2"/>
+          <line x1="18.5" y1="18.5" x2="25" y2="25" stroke="#5BB8FF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10" y1="13" x2="16" y2="13" stroke="#A0D2FF" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="13" y1="10" x2="13" y2="16" stroke="#A0D2FF" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="process-num">01</div>
+      <div class="process-title">Анализ</div>
+      <div class="process-desc">Погружение в ваш продукт, аудиторию и конкурентов. Находим точки роста.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-step-icon-wrap">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="22" height="22" rx="3" stroke="#5BB8FF" stroke-width="2"/>
+          <line x1="9" y1="10" x2="21" y2="10" stroke="#A0D2FF" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9" y1="15" x2="17" y2="15" stroke="#A0D2FF" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="9" y1="20" x2="14" y2="20" stroke="#5BB8FF" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="process-num">02</div>
+      <div class="process-title">Стратегия</div>
+      <div class="process-desc">Контент-план, форматы, каналы и KPI на 3–6 месяцев вперёд.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-step-icon-wrap">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15" cy="15" r="10" stroke="#5BB8FF" stroke-width="2"/>
+          <polygon points="12,10 22,15 12,20" fill="#A0D2FF" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="process-num">03</div>
+      <div class="process-title">Создание</div>
+      <div class="process-desc">Снимаем, монтируем, пишем. Полный продакшн с вашим участием.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-step-icon-wrap">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 20 L10 14 L16 17 L22 8" stroke="#5BB8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="8" r="3" fill="#A0D2FF"/>
+          <line x1="5" y1="25" x2="25" y2="25" stroke="#4A6880" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="process-num">04</div>
+      <div class="process-title">Запуск</div>
+      <div class="process-desc">Таргет, алгоритмы, оптимизация под результат в реальном времени.</div>
+    </div>
+    <div class="process-step">
+      <div class="process-step-icon-wrap">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 22 L7 16" stroke="#A0D2FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M13 22 L13 10" stroke="#5BB8FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M19 22 L19 13" stroke="#A0D2FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M25 22 L25 7" stroke="#C8E8FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M4 7 L12 5 L19 9 L26 4" stroke="#5BB8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="process-num">05</div>
+      <div class="process-title">Результат</div>
+      <div class="process-desc">Отчёт с реальными цифрами. Масштабируем то, что работает лучше всего.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══ FAQ ═══ -->
+<section class="section" id="faq">
+  <div class="anim">
+    <div class="section-tag">// частые вопросы</div>
+    <h2 class="section-title">FAQ</h2>
+    <p class="section-desc">Ответы на вопросы, которые задают чаще всего.</p>
+  </div>
+  <div class="faq-list anim" style="animation-delay:0.15s" id="faq-list"></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PARTNER BIG CTA ═══ -->
+<section class="partner-section">
+  <div class="partner-inner" id="partner-area">
+    <h2 class="partner-title anim">
+      Работать<br/><em>с нами</em>
+    </h2>
+    <div class="partner-cta anim" style="animation-delay:0.15s">
+      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="logo.jpeg" alt="QAUYM"/>
+      <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:16px 36px;">Начать проект с нами →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA / CONTACT ═══ -->
+<div class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div style="position:relative;z-index:2;">
+      <div class="section-tag" style="margin-bottom:16px">// давайте начнём</div>
+      <h2 class="cta-title">Готовы к <em>результату</em>?</h2>
+      <p class="cta-sub">Оставьте заявку — расскажите о проекте, и мы свяжемся в течение 10 минут. Первая консультация бесплатно.</p>
+      <div class="cta-promise">
+        <div class="cta-promise-dot"></div>
+        Ответим за 10 минут в рабочее время
+      </div>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;">
+        <a href="https://wa.me/77001234567" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
+          <span>💬</span> Написать в WhatsApp
+        </a>
+        <a href="https://t.me/qauym_media" target="_blank" class="messenger-btn telegram-btn" style="max-width:280px;">
+          <span>✈️</span> Написать в Telegram
+        </a>
+      </div>
+    </div>
+    <div class="cta-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Ваше имя</label>
+          <input class="form-input" type="text" placeholder="Айдар Бекжанов"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Телефон</label>
+          <input class="form-input" type="tel" placeholder="+7 777 000 00 00"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Компания / бренд</label>
+        <input class="form-input" type="text" placeholder="Название вашей компании"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Нужна услуга</label>
+        <select class="form-select">
+          <option value="">Выберите услугу...</option>
+          <option>Продюсирование</option>
+          <option>Reels & TikTok</option>
+          <option>AI Продакшн</option>
+          <option>SMM 360°</option>
+          <option>AI Ассистент</option>
+          <option>Индивидуальное решение</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Расскажите о проекте</label>
+        <textarea class="form-textarea" placeholder="Кратко опишите задачу, цели, бюджет..."></textarea>
+      </div>
+      <button class="btn btn-primary form-submit" onclick="submitForm()">Отправить заявку →</button>
+      <div style="font-size:12px;color:var(--text3);margin-top:8px;text-align:center;">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <img src="logo.jpeg" alt="QAUYM"/>
+        <span class="footer-brand-name">QAUYM MEDIA</span>
+      </div>
+      <div class="footer-brand-desc">Digital Production Studio в Алматы. Создаём контент, строим аудитории, приводим клиентов.</div>
+    </div>
+    <div class="footer-links-group">
+      <div>
+        <div class="footer-col-title">Навигация</div>
+        <div class="footer-col">
+          <a href="#services">Услуги</a>
+          <a href="#cases">Кейсы</a>
+          <a href="#process">Подход</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Контакты</div>
+        <div class="footer-col">
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://t.me/qauym_media" target="_blank">Telegram</a>
+          <a href="https://wa.me/77001234567" target="_blank">WhatsApp</a>
+          <a href="mailto:hello@qauym.media">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-bar">
+    <span>© 2024 QAUYM MEDIA</span>
+    <span>Алматы, Казахстан</span>
+  </div>
+</footer>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="bottom-nav-logo">
+    <img src="logo.jpeg" alt="Q"/>
+    <span style="font-size:15px;font-weight:800;color:var(--cyan2);letter-spacing:0.04em;">QAUYM</span>
+  </div>
+  <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:10px 22px;">Начать проект</a>
+</div>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="service-modal" onclick="closeModal('service-modal', event)">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModalDirect('service-modal')">✕</div>
+    <div class="modal-hero"><img id="sm-img" src="" alt=""/><div class="modal-hero-overlay"></div></div>
+    <div class="modal-body">
+      <div class="modal-tags" id="sm-tags"></div>
+      <div class="modal-title" id="sm-title"></div>
+      <div class="modal-desc" id="sm-desc"></div>
+      <div class="modal-metrics" id="sm-metrics"></div>
+      <div class="modal-details-title">Что включено</div>
+      <div id="sm-details"></div>
+      <div class="modal-btns">
+        <a href="#contact" class="btn btn-primary" onclick="closeModalDirect('service-modal')">Обсудить проект</a>
+        <button class="btn btn-ghost" onclick="closeModalDirect('service-modal')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE MODAL -->
+<div class="modal-overlay" id="case-modal" onclick="closeModal('case-modal', event)">
+  <div class="modal-box">
+    <div class="modal-close" onclick="closeModalDirect('case-modal')">✕</div>
+    <div class="modal-hero"><img id="cm-img" src="" alt=""/><div class="modal-hero-overlay"></div></div>
+    <div class="modal-body">
+      <div class="modal-tags" id="cm-tags"></div>
+      <div class="modal-title" id="cm-title"></div>
+      <div class="modal-desc" id="cm-desc"></div>
+      <div class="modal-metrics" id="cm-metrics"></div>
+      <div class="modal-details-title">Что мы сделали</div>
+      <div id="cm-details"></div>
+      <div class="modal-btns">
+        <a href="#contact" class="btn btn-primary" onclick="closeModalDirect('case-modal')">Обсудить проект</a>
+        <button class="btn btn-ghost" onclick="closeModalDirect('case-modal')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ─── DATA ─── */
+const SERVICES = [
+  {name:'Продюсирование',img:'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',tags:['Production','Content','Strategy'],desc:'Полный цикл создания контента — от разработки стратегии и написания сценариев до финального монтажа и публикации. Мы берём на себя все смыслы вашего бренда и воплощаем их в контент, который работает.',metrics:[{v:'40+',l:'проектов'},{v:'150M+',l:'просмотров'},{v:'98%',l:'довольны'}],details:['Разработка контент-стратегии и редполитики','Написание сценариев и брифов под каждый формат','Полный видеопродакшн: съёмка, монтаж, цветокоррекция','Адаптация под все платформы: Instagram, TikTok, YouTube','Аналитика и оптимизация после публикации']},
+  {name:'Reels & TikTok',img:'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',tags:['Reels','TikTok','Viral'],desc:'Создаём короткий вертикальный контент, который останавливает скролл и конвертирует просмотры в продажи. Знаем алгоритмы обеих платформ и умеем делать контент, который системно выходит в рекомендации.',metrics:[{v:'5M+',l:'просмотров/мес'},{v:'12%',l:'средний ER'},{v:'×3',l:'рост продаж'}],details:['Анализ трендов и алгоритмов TikTok/Reels','Съёмка и монтаж вертикального контента','A/B тестирование заходов и хуков','Хэштег-стратегия и оптимизация под рекомендации','Еженедельная аналитика и корректировка курса']},
+  {name:'AI Продакшн',img:'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',tags:['AI','Neural','Innovation'],desc:'Создаём уникальный контент с использованием нейросетей нового поколения: AI-видео, AI-изображения, AI-озвучка. Технологии позволяют делать быстрее и дешевле без потери качества.',metrics:[{v:'×5',l:'быстрее'},{v:'-60%',l:'стоимость'},{v:'100%',l:'уникальность'}],details:['Генерация видеоконтента через Sora/Runway','AI-аватары и виртуальные спикеры','Автоматическая озвучка на разных языках','AI-обработка и улучшение фото и видео','Интеграция AI-инструментов в производственный процесс']},
+  {name:'SMM 360°',img:'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',tags:['SMM','Community','Growth'],desc:'Стратегическое управление социальными сетями под ключ. Создаём активные сообщества вокруг вашего продукта, которые становятся двигателем роста и продаж.',metrics:[{v:'2000+',l:'клиентов'},{v:'+300%',l:'рост охватов'},{v:'98%',l:'retention'}],details:['Разработка SMM-стратегии на 3–6 месяцев','Контент-план и производство всех форматов','Комьюнити-менеджмент и работа с аудиторией','Таргетированная реклама и продвижение','Ежемесячные отчёты и стратегические сессии']},
+  {name:'AI Ассистент',img:'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',tags:['AI','Automation','Sales'],desc:'Разрабатываем и внедряем кастомных AI-ботов, которые автоматизируют коммуникации, квалифицируют лиды и помогают закрывать сделки 24/7 без участия менеджеров.',metrics:[{v:'+200%',l:'лидов/мес'},{v:'-70%',l:'нагрузка'},{v:'24/7',l:'работа'}],details:['Разработка AI-чатбота под вашу нишу','Интеграция с CRM, Telegram, WhatsApp, Instagram','Обучение бота на вашей базе знаний','Автоматическая квалификация и прогрев лидов','Аналитика диалогов и улучшение скриптов']},
+  {name:'Индивидуальные решения',img:'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',tags:['Custom','Branding','Launch'],desc:'Для тех, кому нужно что-то совершенно уникальное. Разработка спецпроектов, комплексный брендинг, стратегия запуска новых продуктов с нуля.',metrics:[{v:'15+',l:'спецпроектов'},{v:'$2M+',l:'привлечено'},{v:'100%',l:'NDA'}],details:['Брендинг и визуальная идентичность','Стратегия запуска продукта или бренда','Спецпроекты и коллаборации','Разработка питч-деков и инвест-материалов','Консалтинг по digital-маркетингу']}
+];
+
+const CASES = [
+  {id:1,filter:'video ai',result:'+5M просмотров',resultColor:'#A0D2FF',title:'Nexus Tech — вирусный запуск',tags:['AI Video','Viral','Tech'],img:'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',desc:'Технологический стартап хотел шумного выхода на рынок. Мы создали серию AI-видео с уникальным визуальным стилем, которые стали вирусными за 14 дней.',metrics:[{v:'5M+',l:'просмотры'},{v:'12M',l:'охват'},{v:'8.4%',l:'CTR'}],details:['До: 0 подписчиков, 0 охватов','После: 5M просмотров за 14 дней','Разработка AI-визуального стиля','24 коротких видео для TikTok и Reels','Работа с 200+ инфлюенсерами','Охват аудитории: 12M уникальных пользователей']},
+  {id:2,filter:'smm ecom',result:'Рост продаж ×3',resultColor:'#C8E8FF',title:'Lumina Beauty — SMM-трансформация',tags:['SMM','Beauty','E-com'],img:'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',desc:'E-commerce бренд косметики обратился с задачей утроить онлайн-продажи за квартал. Мы перестроили контент-стратегию, запустили кампании и внедрили AI-чатбота.',metrics:[{v:'×3',l:'продажи'},{v:'14.5%',l:'конверсия'},{v:'380%',l:'ROI'}],details:['До: 2 000 подписчиков, 50 заказов/месяц','После: 28 000 подписчиков, 180 заказов/месяц','Полный ребрендинг соцсетей','Targeted рекламные кампании','AI-чатбот для автоматизации продаж','Коллаборации с 50+ инфлюенсерами']},
+  {id:3,filter:'brand smm',result:'12k подписчиков',resultColor:'#5BB8FF',title:'FreedomStyle — международный выход',tags:['Branding','International','SMM'],img:'https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif',desc:'Локальный бренд одежды хотел выйти на международный рынок. Мы разработали новый визуальный код и обеспечили присутствие в 8 странах за 3 месяца.',metrics:[{v:'12k+',l:'подписчики'},{v:'8',l:'стран'},{v:'×3',l:'ROI'}],details:['До: только Казахстан, 800 подписчиков','После: 8 стран, 12 000+ подписчиков','Переосмысление визуального кода','Контент на 3 языках','Партнёрства с международными байерами','AI-ассистенты в отделе продаж']},
+  {id:4,filter:'ai',result:'+300% лидов',resultColor:'#A0D2FF',title:'FinTech AI-маркетинг',tags:['AI','FinTech','Leads'],img:'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',desc:'FinTech стартап нуждался в масштабировании воронки. Внедрили AI-систему персонализированного маркетинга, которая увеличила квалифицированные лиды в 4 раза.',metrics:[{v:'+300%',l:'лиды'},{v:'-45%',l:'CAC'},{v:'+180%',l:'LTV'}],details:['До: 50 лидов в месяц, CAC = 15 000 ₸','После: 200 лидов в месяц, CAC = 8 000 ₸','AI-персонализация рекламных сообщений','Автоматизация email и Telegram воронок','Predictive analytics для таргетинга','Интеграция с CRM']},
+  {id:5,filter:'video brand',result:'×4 брони',resultColor:'#C8E8FF',title:'Luxury отель — визуальный ребрендинг',tags:['Video','Luxury','Brand'],img:'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',desc:'Пятизвёздочный отель перестроил онлайн-присутствие. Кинематографические видео и работа с travel-инфлюенсерами удвоили процент онлайн-бронирований.',metrics:[{v:'×4',l:'брони'},{v:'8M',l:'охват'},{v:'+60%',l:'ADR'}],details:['До: 20 онлайн-бронирований в месяц','После: 80+ онлайн-бронирований в месяц','Кинематографическая съёмка отеля','Сезонные рекламные кампании','Партнёрства с travel-блогерами','SEO-оптимизация контента']},
+  {id:6,filter:'smm ecom',result:'1M подписчиков',resultColor:'#5BB8FF',title:'Beauty бренд — органический рост',tags:['SMM','Beauty','Viral'],img:'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',desc:'Новый beauty-бренд набрал 1 миллион подписчиков в Instagram за 6 месяцев без единого тенге на рекламу через нашу стратегию вирального роста.',metrics:[{v:'1M',l:'подписчики'},{v:'12.3%',l:'ER'},{v:'+500%',l:'продажи'}],details:['До: 0 подписчиков, новый бренд','После: 1 000 000 подписчиков за 6 месяцев','Органическая стратегия роста','Создание вирального контента','Комьюнити-менеджмент','UGC-кампании с аудиторией']}
+];
+
+const FAQS = [
+  {q:'Сколько стоит сотрудничество?',a:'Стоимость зависит от объёма и услуг. Ежемесячное партнёрство начинается от 150 000 ₸ в месяц. Разовые проекты — от 150 000 ₸. На первом созвоне мы выясняем ваши задачи и называем точную цифру без скрытых платежей.'},
+  {q:'Сколько длится проект?',a:'Онбординг и запуск — 1–2 недели. Первые результаты видны через 30–45 дней. Для долгосрочного органического роста рекомендуем партнёрство на 3–6 месяцев. Разовые проекты — обычно 2–4 недели.'},
+  {q:'Когда будут результаты?',a:'Первые измеримые результаты — уже в первый месяц. Значительный рост продаж и аудитории обычно виден на 2–3 месяц. Мы не обещаем мгновенных чудес, но гарантируем системный прогресс с отчётностью.'},
+  {q:'Вы работаете только с крупными брендами?',a:'Нет. Мы работаем с брендами разного масштаба — от стартапов до корпораций. Главное — чтобы у вас был продукт с потенциалом и желание расти. Минимальный бюджет на старт — 150 000 ₸ в месяц.'},
+  {q:'Нужно ли мне разбираться в маркетинге?',a:'Нет. Мы берём на себя всю экспертизу. Ваша задача — рассказать нам о продукте и целях. Мы переводим это в стратегию и конкретные действия. Отчитываемся простым языком без жаргона.'},
+  {q:'Работаете ли вы с NDA?',a:'Да, готовы подписать NDA и работать в условиях полной конфиденциальности. Особенно актуально для финтех, medtech и pre-launch проектов.'},
+  {q:'Можно ли работать удалённо?',a:'Да, большинство наших клиентов работают с нами удалённо через Notion, Telegram, Zoom. Если требуется съёмка — организуем всё в нужном городе.'}
+];
+
+const TRAIL_IMGS = [
+  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
+  'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',
+  'https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif',
+  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
+  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
+  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif'
+];
+
+/* ─── CASES ─── */
+function renderCases(filter){
+  const grid = document.getElementById('cases-grid');
+  grid.innerHTML = '';
+  CASES.filter(c => filter === 'all' || c.filter.includes(filter)).forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'case-card';
+    d.innerHTML = `
+      <div class="case-img-wrap">
+        <img src="${c.img}" alt="${c.title}" loading="lazy"/>
+        <div class="case-img-overlay"></div>
+        <div class="case-open-hint">Открыть кейс</div>
+      </div>
+      <div class="case-body">
+        <div class="case-result" style="color:${c.resultColor}">${c.result}</div>
+        <div class="case-title">${c.title}</div>
+        <div class="case-tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>`;
+    d.onclick = () => openCaseModal(c);
+    grid.appendChild(d);
+  });
+}
+renderCases('all');
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCases(btn.dataset.filter);
+  };
+});
+
+/* ─── MODAL ─── */
+function buildMetrics(metrics, id){
+  document.getElementById(id).innerHTML = metrics.map(m=>`<div class="metric-block"><div class="metric-val">${m.v}</div><div class="metric-label">${m.l}</div></div>`).join('');
+}
+function buildDetails(details, id){
+  document.getElementById(id).innerHTML = details.map(d=>`<div class="modal-detail-row"><span class="check-icon">✦</span><span class="modal-detail-text">${d}</span></div>`).join('');
+}
+function openModal(id){
+  const o = document.getElementById(id);
+  o.style.display='flex';document.body.style.overflow='hidden';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.add('visible')));
+  o.querySelector('.modal-box').scrollTop = 0;
+}
+function closeModal(id, e){
+  if(e && e.target !== document.getElementById(id)) return;
+  closeModalDirect(id);
+}
+function closeModalDirect(id){
+  const o = document.getElementById(id);
+  o.classList.remove('visible');document.body.style.overflow='';
+  setTimeout(()=>{ o.style.display='none'; }, 300);
+}
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape'){ closeModalDirect('service-modal');closeModalDirect('case-modal'); }
+});
+function openServiceModal(idx){
+  const s = SERVICES[idx];
+  document.getElementById('sm-img').src = s.img;
+  document.getElementById('sm-title').textContent = s.name;
+  document.getElementById('sm-desc').textContent = s.desc;
+  document.getElementById('sm-tags').innerHTML = s.tags.map(t=>`<span class="tag" style="color:var(--cyan2);border-color:rgba(160,210,255,0.2)">${t}</span>`).join('');
+  buildMetrics(s.metrics,'sm-metrics');buildDetails(s.details,'sm-details');
+  openModal('service-modal');
+}
+function openCaseModal(c){
+  document.getElementById('cm-img').src = c.img;
+  document.getElementById('cm-title').textContent = c.title;
+  document.getElementById('cm-desc').textContent = c.desc;
+  document.getElementById('cm-tags').innerHTML = c.tags.map(t=>`<span class="tag" style="color:var(--cyan2);border-color:rgba(160,210,255,0.2)">${t}</span>`).join('');
+  buildMetrics(c.metrics,'cm-metrics');buildDetails(c.details,'cm-details');
+  openModal('case-modal');
+}
+
+/* ─── FAQ ─── */
+const faqList = document.getElementById('faq-list');
+FAQS.forEach((f,i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = `
+    <div class="faq-q" onclick="toggleFaq(${i})">
+      <span class="faq-q-text">${f.q}</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>`;
+  faqList.appendChild(item);
+});
+function toggleFaq(i){
+  const items = document.querySelectorAll('.faq-item');
+  const item = items[i];
+  const wasOpen = item.classList.contains('open');
+  items.forEach(it=>it.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+/* ─── PARTNER MOUSE TRAIL ─── */
+const partnerArea = document.getElementById('partner-area');
+let lastTrail=0,trailIdx=0;
+partnerArea.addEventListener('mousemove',e=>{
+  const now=Date.now();if(now-lastTrail<80) return;lastTrail=now;
+  const rect=partnerArea.getBoundingClientRect();
+  const x=e.clientX-rect.left,y=e.clientY-rect.top;
+  const img=document.createElement('img');
+  img.className='trail-img';img.src=TRAIL_IMGS[trailIdx%TRAIL_IMGS.length];trailIdx++;
+  const rot=(Math.random()-0.5)*24;
+  img.style.cssText=`left:${x-50}px;top:${y-50}px;height:90px;transform:rotate(${rot}deg) scale(1);opacity:1;aspect-ratio:16/10;`;
+  partnerArea.appendChild(img);
+  requestAnimationFrame(()=>{ setTimeout(()=>{ img.style.opacity='0';img.style.transform=`rotate(${rot}deg) scale(0.82)`;setTimeout(()=>img.remove(),900); },80); });
+});
+
+/* ─── FORM SUBMIT ─── */
+function submitForm(){
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '✓ Заявка отправлена!';
+  btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
+  setTimeout(()=>{ btn.textContent='Отправить заявку →';btn.style.background=''; },3000);
+}
+
+/* ─── SCROLL REVEAL ─── */
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible');revealObs.unobserve(e.target); } });
+},{threshold:0.1});
+document.querySelectorAll('.anim').forEach(el=>revealObs.observe(el));
+
+/* ─── NAV SCROLL ─── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>
