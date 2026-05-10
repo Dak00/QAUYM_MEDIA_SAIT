@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-
   --bg: #050C18;
   --bg2: #070F1F;
   --bg3: #0A1628;
@@ -445,22 +444,124 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 .modal-detail-text{font-size:14px;color:var(--text);line-height:1.5;}
 .modal-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;}
 
-/* Responsive */
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .nav-inner{padding:16px 24px;}
-  .hero-content{padding:0 24px 60px;}
-  .section{padding:80px 24px;}
-  .process-section,.trust-section,.clients-section,.cta-section,.partner-section{padding-left:24px;padding-right:24px;}
-  footer{padding:60px 24px 32px;}
-  .bottom-nav{bottom:16px;}
-  .form-row{grid-template-columns:1fr;}
-  .hero-stats{flex-wrap:wrap;gap:24px;}
-  .hero-stat{border-right:none;margin-right:0;padding-right:0;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .service-card.wide{grid-column:span 2;}
+  .cases-grid{grid-template-columns:repeat(2,1fr);}
+  .trust-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .process-steps{grid-template-columns:repeat(3,1fr);}
+  .process-steps::before{display:none;}
+  .cta-inner{grid-template-columns:1fr;gap:48px;}
+  .partner-inner{padding:80px 48px;}
 }
-@media(max-width:500px){
-  .process-steps{grid-template-columns:1fr;}
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none;}
+  .nav-inner{padding:14px 20px;}
+  .nav-logo-text{font-size:14px;}
+  .btn-primary{padding:10px 18px;font-size:13px;}
+
+  /* Hero */
+  .hero-content{padding:0 20px 100px;}
+  .hero-title{font-size:clamp(44px,13vw,72px);}
+  .hero-title em{font-size:clamp(11px,3vw,15px);}
+  .hero-desc-row{flex-direction:column;gap:24px;}
+  .hero-desc{font-size:14px;max-width:100%;}
+  .hero-actions{gap:10px;}
+  .hero-actions .btn{padding:13px 22px;font-size:14px;}
+  .hero-stats{flex-wrap:wrap;gap:0;padding-top:24px;margin-top:24px;}
+  .hero-stat{width:50%;padding:16px 0;margin-right:0;border-right:none;border-bottom:1px solid rgba(160,210,255,0.08);}
+  .hero-stat:nth-child(odd){border-right:1px solid rgba(160,210,255,0.08);}
+  .hero-stat:nth-child(3),.hero-stat:nth-child(4){border-bottom:none;}
+  .hero-stat-num{font-size:28px;}
+
+  /* Sections */
+  .section{padding:60px 20px;}
+  .section-title{font-size:clamp(28px,7vw,40px);}
+  .section-desc{font-size:14px;margin-bottom:36px;}
+  .process-section{padding:60px 20px;}
+  .trust-section{padding:60px 20px;}
+  .clients-section{padding:0 20px 60px;}
+  .partner-section{padding:60px 20px;}
+  .cta-section{padding:60px 20px;}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:12px;}
+  .service-card.wide{grid-column:span 1;}
+  .service-card{padding:24px;}
+  .service-icon{font-size:32px;margin-bottom:14px;}
+  .service-name{font-size:18px;}
+  .service-preview{font-size:13px;}
+
+  /* Cases */
+  .cases-grid{grid-template-columns:1fr;gap:14px;}
+  .cases-filters{gap:8px;}
+  .filter-btn{padding:7px 16px;font-size:11px;}
+  .case-img-wrap{height:200px;}
+  .case-result{font-size:24px;}
+
+  /* Trust grid */
+  .trust-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .trust-num{font-size:36px;}
+  .trust-num-card{padding:24px 20px;}
+
+  /* About */
+  .about-team-stat-row{grid-template-columns:1fr 1fr;}
+
+  /* Process */
+  .process-steps{grid-template-columns:1fr 1fr;gap:0;}
+  .process-steps::before{display:none;}
+  .process-step{padding:24px 16px 32px;}
+  .process-step-icon-wrap{width:56px;height:56px;}
+
+  /* Partner */
+  .partner-inner{padding:60px 24px;border-radius:32px;}
+  .partner-title{font-size:clamp(40px,10vw,60px);margin-bottom:32px;}
+  .partner-cta{flex-direction:column;gap:16px;}
+
+  /* CTA / Contact */
+  .cta-inner{padding:40px 24px;border-radius:32px;gap:36px;}
+  .cta-title{font-size:clamp(32px,8vw,48px);}
+  .form-row{grid-template-columns:1fr;}
+  .messengers-row{flex-direction:column;}
+  .messenger-btn{max-width:100% !important;}
+
+  /* Footer */
+  footer{padding:48px 20px 24px;}
+  .footer-inner{gap:32px;}
+  .footer-links-group{gap:32px;}
+  .copyright-bar{flex-direction:column;gap:8px;text-align:center;}
+
+  /* Bottom nav */
+  .bottom-nav{bottom:16px;padding:8px 8px 8px 16px;gap:12px;}
+
+  /* Modal */
+  .modal-overlay{padding:12px;}
+  .modal-box{border-radius:24px;}
+  .modal-hero{height:200px;border-radius:22px 22px 0 0;}
+  .modal-body{padding:24px 20px 36px;}
+  .modal-metrics{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .metric-val{font-size:18px;}
+  .modal-btns{flex-direction:column;}
+  .modal-btns .btn{width:100%;justify-content:center;}
+  #cm-gallery{grid-template-columns:repeat(2,1fr) !important;}
+}
+
+@media(max-width:480px){
+  .hero-title{font-size:clamp(38px,12vw,56px);}
   .trust-grid{grid-template-columns:1fr 1fr;}
+  .trust-num{font-size:28px;}
+  .trust-num-card{padding:18px 14px;}
+  .process-steps{grid-template-columns:1fr;}
+  .about-grid{gap:32px;}
+  .footer-links-group{flex-direction:column;gap:24px;}
+  .services-grid{grid-template-columns:1fr;}
+  .hero-stat{width:50%;}
+  .modal-metrics{grid-template-columns:1fr 1fr;}
+  .metric-block:last-child{grid-column:span 2;}
 }
 </style>
 </head>
@@ -470,7 +571,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="IMG_2265.PNG" alt="QAUYM"/>
+      <img src="logo.jpeg" alt="QAUYM"/>
       <span class="nav-logo-text">QAUYM MEDIA</span>
     </a>
     <div class="nav-links">
@@ -543,22 +644,22 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 <div class="marquee-section">
   <div class="marquee-wrap">
     <div class="marquee-track" id="marquee">
-      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" alt=""/>
-      <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" alt=""/>
+      <img src="adlet1.png" alt="" style="width:auto;"/>
+      <img src="adlet2.png" alt="" style="width:auto;"/>
+      <img src="adlet3.png" alt="" style="width:auto;"/>
+      <img src="adlet4.png" alt="" style="width:auto;"/>
+      <img src="adlet5.png" alt="" style="width:auto;"/>
+      <img src="adlet6.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan1.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan2.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan3.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan4.png" alt="" style="width:auto;"/>
+      <img src="adlet1.png" alt="" style="width:auto;"/>
+      <img src="adlet2.png" alt="" style="width:auto;"/>
+      <img src="adlet3.png" alt="" style="width:auto;"/>
+      <img src="adlet4.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan1.png" alt="" style="width:auto;"/>
+      <img src="zhanmukan2.png" alt="" style="width:auto;"/>
     </div>
   </div>
 </div>
@@ -629,9 +730,8 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
   </div>
   <div class="cases-filters anim" style="animation-delay:0.1s">
     <button class="filter-btn active" data-filter="all">Все</button>
-    <button class="filter-btn" data-filter="smm">SMM</button>
     <button class="filter-btn" data-filter="video">Video</button>
-    <button class="filter-btn" data-filter="ai">AI</button>
+    <button class="filter-btn" data-filter="smm">SMM</button>
     <button class="filter-btn" data-filter="brand">Branding</button>
     <button class="filter-btn" data-filter="ecom">E-commerce</button>
   </div>
@@ -880,7 +980,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       Работать<br/><em>с нами</em>
     </h2>
     <div class="partner-cta anim" style="animation-delay:0.15s">
-      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="logo.jpeg" alt="QAUYM"/>
+      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="adlet1.png" alt=""/>
       <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:16px 36px;">Начать проект с нами →</a>
     </div>
   </div>
@@ -898,7 +998,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
         Ответим за 10 минут в рабочее время
       </div>
       <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;">
-        <a href="https://wa.me/77001234567" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
+        <a href="https://wa.me/77066006506" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
           <span>💬</span> Написать в WhatsApp
         </a>
         <a href="https://t.me/qauym_media" target="_blank" class="messenger-btn telegram-btn" style="max-width:280px;">
@@ -1021,6 +1121,8 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       <div class="modal-title" id="cm-title"></div>
       <div class="modal-desc" id="cm-desc"></div>
       <div class="modal-metrics" id="cm-metrics"></div>
+      <!-- Photo gallery -->
+      <div id="cm-gallery" style="display:none;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px;"></div>
       <div class="modal-details-title">Что мы сделали</div>
       <div id="cm-details"></div>
       <div class="modal-btns">
@@ -1043,12 +1145,50 @@ const SERVICES = [
 ];
 
 const CASES = [
-  {id:1,filter:'video ai',result:'+5M просмотров',resultColor:'#A0D2FF',title:'Nexus Tech — вирусный запуск',tags:['AI Video','Viral','Tech'],img:'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',desc:'Технологический стартап хотел шумного выхода на рынок. Мы создали серию AI-видео с уникальным визуальным стилем, которые стали вирусными за 14 дней.',metrics:[{v:'5M+',l:'просмотры'},{v:'12M',l:'охват'},{v:'8.4%',l:'CTR'}],details:['До: 0 подписчиков, 0 охватов','После: 5M просмотров за 14 дней','Разработка AI-визуального стиля','24 коротких видео для TikTok и Reels','Работа с 200+ инфлюенсерами','Охват аудитории: 12M уникальных пользователей']},
-  {id:2,filter:'smm ecom',result:'Рост продаж ×3',resultColor:'#C8E8FF',title:'Lumina Beauty — SMM-трансформация',tags:['SMM','Beauty','E-com'],img:'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',desc:'E-commerce бренд косметики обратился с задачей утроить онлайн-продажи за квартал. Мы перестроили контент-стратегию, запустили кампании и внедрили AI-чатбота.',metrics:[{v:'×3',l:'продажи'},{v:'14.5%',l:'конверсия'},{v:'380%',l:'ROI'}],details:['До: 2 000 подписчиков, 50 заказов/месяц','После: 28 000 подписчиков, 180 заказов/месяц','Полный ребрендинг соцсетей','Targeted рекламные кампании','AI-чатбот для автоматизации продаж','Коллаборации с 50+ инфлюенсерами']},
-  {id:3,filter:'brand smm',result:'12k подписчиков',resultColor:'#5BB8FF',title:'FreedomStyle — международный выход',tags:['Branding','International','SMM'],img:'https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif',desc:'Локальный бренд одежды хотел выйти на международный рынок. Мы разработали новый визуальный код и обеспечили присутствие в 8 странах за 3 месяца.',metrics:[{v:'12k+',l:'подписчики'},{v:'8',l:'стран'},{v:'×3',l:'ROI'}],details:['До: только Казахстан, 800 подписчиков','После: 8 стран, 12 000+ подписчиков','Переосмысление визуального кода','Контент на 3 языках','Партнёрства с международными байерами','AI-ассистенты в отделе продаж']},
-  {id:4,filter:'ai',result:'+300% лидов',resultColor:'#A0D2FF',title:'FinTech AI-маркетинг',tags:['AI','FinTech','Leads'],img:'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',desc:'FinTech стартап нуждался в масштабировании воронки. Внедрили AI-систему персонализированного маркетинга, которая увеличила квалифицированные лиды в 4 раза.',metrics:[{v:'+300%',l:'лиды'},{v:'-45%',l:'CAC'},{v:'+180%',l:'LTV'}],details:['До: 50 лидов в месяц, CAC = 15 000 ₸','После: 200 лидов в месяц, CAC = 8 000 ₸','AI-персонализация рекламных сообщений','Автоматизация email и Telegram воронок','Predictive analytics для таргетинга','Интеграция с CRM']},
-  {id:5,filter:'video brand',result:'×4 брони',resultColor:'#C8E8FF',title:'Luxury отель — визуальный ребрендинг',tags:['Video','Luxury','Brand'],img:'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',desc:'Пятизвёздочный отель перестроил онлайн-присутствие. Кинематографические видео и работа с travel-инфлюенсерами удвоили процент онлайн-бронирований.',metrics:[{v:'×4',l:'брони'},{v:'8M',l:'охват'},{v:'+60%',l:'ADR'}],details:['До: 20 онлайн-бронирований в месяц','После: 80+ онлайн-бронирований в месяц','Кинематографическая съёмка отеля','Сезонные рекламные кампании','Партнёрства с travel-блогерами','SEO-оптимизация контента']},
-  {id:6,filter:'smm ecom',result:'1M подписчиков',resultColor:'#5BB8FF',title:'Beauty бренд — органический рост',tags:['SMM','Beauty','Viral'],img:'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',desc:'Новый beauty-бренд набрал 1 миллион подписчиков в Instagram за 6 месяцев без единого тенге на рекламу через нашу стратегию вирального роста.',metrics:[{v:'1M',l:'подписчики'},{v:'12.3%',l:'ER'},{v:'+500%',l:'продажи'}],details:['До: 0 подписчиков, новый бренд','После: 1 000 000 подписчиков за 6 месяцев','Органическая стратегия роста','Создание вирального контента','Комьюнити-менеджмент','UGC-кампании с аудиторией']}
+  {
+    id:1, filter:'video smm',
+    result:'34.2M просмотров', resultColor:'#A0D2FF',
+    title:'Адлет — вирусный контент в TikTok',
+    tags:['TikTok','Viral','Video'],
+    img:'adlet1.png',
+    imgs:['adlet1.png','adlet2.png','adlet3.png','adlet4.png','adlet5.png','adlet6.png'],
+    desc:'Создали серию вирусных роликов для TikTok-аккаунта Адлета. Контент набрал десятки миллионов просмотров органически — без единого тенге на рекламу. Системная работа над хуками, монтажом и форматами вывела аккаунт в топ рекомендаций.',
+    metrics:[{v:'34.2M',l:'просмотры'},{v:'7.1M',l:'лучший ролик'},{v:'95%',l:'органика'}],
+    details:['Разработка контент-стратегии под алгоритмы TikTok','Написание сценариев с сильными заходами','Монтаж и визуальная подача под вертикальный формат','Системный выход в рекомендации без рекламного бюджета','Рост просмотров от 78K до 34.2M на одном ролике']
+  },
+  {
+    id:2, filter:'smm brand',
+    result:'3.1M просмотров', resultColor:'#C8E8FF',
+    title:'Жанмукан — SMM и продюсирование',
+    tags:['SMM','Продюсирование','Reels'],
+    img:'zhanmukan1.png',
+    imgs:['zhanmukan1.png','zhanmukan2.png','zhanmukan3.png','zhanmukan4.png'],
+    desc:'Полное продюсирование контент-стратегии для медийной личности. Создали серию форматов, которые резонируют с широкой аудиторией: интервью, реакции, личные истории. Один ролик собрал 3.1M просмотров.',
+    metrics:[{v:'3.1M',l:'просмотры'},{v:'609K',l:'вовлечённость'},{v:'×4',l:'рост охватов'}],
+    details:['Разработка линейки контент-форматов','Сценарии для интервью и реакций','Монтаж под разные платформы','Рост вовлечённости аудитории в 4 раза','Системный выход на миллионные охваты']
+  },
+  {
+    id:3, filter:'smm brand',
+    result:'3.9M просмотров/мес', resultColor:'#5BB8FF',
+    title:'Касиет — образовательный контент',
+    tags:['Education','TikTok','Instagram'],
+    img:'kasiet1.png',
+    imgs:['kasiet1.png','kasiet2.png','kasiet3.png','kasiet4.png','kasiet5.png'],
+    desc:'Вывели образовательный аккаунт о казахских орнаментах с 9 950 до 37 000 подписчиков. Просмотры публикаций выросли до 3.9M в месяц — рост +6 698%. Построили контент-машину, которая генерирует охваты органически.',
+    metrics:[{v:'3.9M',l:'просмотров/мес'},{v:'+6699%',l:'рост просмотров'},{v:'37K',l:'подписчиков'}],
+    details:['Аудит и полная перестройка контент-стратегии','Разработка виральных форматов для образовательной ниши','Рост с 9 950 до 37 000 подписчиков','Просмотры: +3.8M за отчётный период','Лайки выросли с 3K до 166K (+4 773%)','Репосты: +15K (+1 725%)']
+  },
+  {
+    id:4, filter:'ecom smm',
+    result:'+500% продажи', resultColor:'#A0D2FF',
+    title:'Монобукет — E-commerce контент',
+    tags:['E-commerce','SMM','Reels'],
+    img:'zhanmukan2.png',
+    imgs:['zhanmukan1.png','zhanmukan3.png','zhanmukan4.png','zhanmukan2.png'],
+    desc:'Создали контент-стратегию для флористического бренда, нацеленную на конверсию в продажи. Короткие видео с реальными покупателями и эмоциональные истории увеличили продажи в 5 раз.',
+    metrics:[{v:'+500%',l:'продажи'},{v:'822K',l:'просмотры'},{v:'14%',l:'конверсия'}],
+    details:['Съёмка и монтаж продуктового контента','UGC-контент с реальными клиентами','Таргетированная реклама на тёплую аудиторию','Серия вирусных Reels про процесс создания букетов','Рост онлайн-заказов в 5 раз за квартал']
+  }
 ];
 
 const FAQS = [
@@ -1062,12 +1202,9 @@ const FAQS = [
 ];
 
 const TRAIL_IMGS = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',
-  'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',
-  'https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif',
-  'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif',
-  'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',
-  'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif'
+  'adlet1.png','adlet2.png','adlet3.png',
+  'zhanmukan1.png','zhanmukan2.png',
+  'kasiet1.png','kasiet3.png'
 ];
 
 /* ─── CASES ─── */
@@ -1140,7 +1277,14 @@ function openCaseModal(c){
   document.getElementById('cm-title').textContent = c.title;
   document.getElementById('cm-desc').textContent = c.desc;
   document.getElementById('cm-tags').innerHTML = c.tags.map(t=>`<span class="tag" style="color:var(--cyan2);border-color:rgba(160,210,255,0.2)">${t}</span>`).join('');
-  buildMetrics(c.metrics,'cm-metrics');buildDetails(c.details,'cm-details');
+  buildMetrics(c.metrics,'cm-metrics');
+  buildDetails(c.details,'cm-details');
+  // Build photo gallery
+  const galleryEl = document.getElementById('cm-gallery');
+  if(galleryEl && c.imgs && c.imgs.length > 1){
+    galleryEl.innerHTML = c.imgs.map(img=>`<img src="${img}" alt="" style="width:100%;height:180px;object-fit:cover;border-radius:14px;border:1px solid var(--border);flex-shrink:0;" loading="lazy"/>`).join('');
+    galleryEl.style.display='grid';
+  } else if(galleryEl){ galleryEl.style.display='none'; }
   openModal('case-modal');
 }
 
