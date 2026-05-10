@@ -90,7 +90,12 @@ main{position:relative;z-index:2;}
 .hero-content{
   position:relative;z-index:2;
   max-width:1400px;width:100%;margin:0 auto;
-  padding:0 48px 80px;
+  padding:110px 48px 80px;
+}
+
+/* Logo glow always on — works for PNG too */
+.nav-logo img,.footer-brand-logo img,.bottom-nav-logo img{
+  filter:drop-shadow(0 0 10px rgba(91,184,255,0.55)) drop-shadow(0 0 24px rgba(91,184,255,0.3));
 }
 
 .hero-badge{
@@ -465,7 +470,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
   .btn-primary{padding:10px 18px;font-size:13px;}
 
   /* Hero */
-  .hero-content{padding:0 20px 100px;}
+  .hero-content{padding:90px 20px 100px;}
   .hero-title{font-size:clamp(44px,13vw,72px);}
   .hero-title em{font-size:clamp(11px,3vw,15px);}
   .hero-desc-row{flex-direction:column;gap:24px;}
@@ -571,7 +576,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 <nav id="main-nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="logo.jpeg" alt="QAUYM"/>
+      <img src="лого.png" alt="QAUYM"/>
       <span class="nav-logo-text">QAUYM MEDIA</span>
     </a>
     <div class="nav-links">
@@ -773,22 +778,29 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
   <div class="clients-label">Нам доверяют</div>
   <div class="clients-scroll-wrap">
     <div class="clients-track">
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Halyk Bank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kaspi</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Freedom Finance</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Jusan Bank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">ForteBank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kolesa.kz</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Chocofood</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Airba Fresh</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Halyk Bank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kaspi</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Freedom Finance</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Jusan Bank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">ForteBank</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kolesa.kz</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Chocofood</div></div>
-      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Airba Fresh</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Adilet Art</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Zhan Mukhanov </div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kasiet School</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Laila Sultankyzy</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Asha Matai</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Omari.to</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kamila Sayanovna</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Alikhan Baizakov</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Dake.zzz</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Anara Batyrkhan</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Adilet Art</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Zhan Mukhanov </div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kasiet School</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Laila Sultankyzy</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Asha Matai</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Omari.to</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Kamila Sayanovna</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Alikhan Baizakov</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Dake.zzz</div></div>
+      <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Anara Batyrkhan</div></div>
+
+
+
     </div>
   </div>
 </div>
@@ -980,7 +992,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       Работать<br/><em>с нами</em>
     </h2>
     <div class="partner-cta anim" style="animation-delay:0.15s">
-      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="adlet1.png" alt=""/>
+      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="logo.jpeg" alt=""/>
       <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:16px 36px;">Начать проект с нами →</a>
     </div>
   </div>
@@ -1001,8 +1013,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
         <a href="https://wa.me/77066006506" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
           <span>💬</span> Написать в WhatsApp
         </a>
-        <a href="https://t.me/qauym_media" target="_blank" class="messenger-btn telegram-btn" style="max-width:280px;">
-          <span>✈️</span> Написать в Telegram
+
         </a>
       </div>
     </div>
@@ -1010,32 +1021,32 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Ваше имя</label>
-          <input class="form-input" type="text" placeholder="Айдар Бекжанов"/>
+          <input id="f-name" class="form-input" type="text" placeholder="Айдар Бекжанов"/>
         </div>
         <div class="form-group">
           <label class="form-label">Телефон</label>
-          <input class="form-input" type="tel" placeholder="+7 777 000 00 00"/>
+          <input id="f-phone" class="form-input" type="tel" placeholder="+7 777 000 00 00"/>
         </div>
       </div>
       <div class="form-group">
         <label class="form-label">Компания / бренд</label>
-        <input class="form-input" type="text" placeholder="Название вашей компании"/>
+        <input id="f-company" class="form-input" type="text" placeholder="Название вашей компании"/>
       </div>
       <div class="form-group">
         <label class="form-label">Нужна услуга</label>
-        <select class="form-select">
+        <select id="f-service" class="form-select">
           <option value="">Выберите услугу...</option>
-          <option>Продюсирование</option>
-          <option>Reels & TikTok</option>
-          <option>AI Продакшн</option>
-          <option>SMM 360°</option>
-          <option>AI Ассистент</option>
+          <option>Продюсирование под ключ</option>
+          <option>Reels под ключ</option>
+          <option>AI Reels</option>
+          <option>Social Media Team</option>
+          <option>AI Автоматизация + CRM</option>
           <option>Индивидуальное решение</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">Расскажите о проекте</label>
-        <textarea class="form-textarea" placeholder="Кратко опишите задачу, цели, бюджет..."></textarea>
+        <textarea id="f-message" class="form-textarea" placeholder="Кратко опишите задачу, цели, бюджет..."></textarea>
       </div>
       <button class="btn btn-primary form-submit" onclick="submitForm()">Отправить заявку →</button>
       <div style="font-size:12px;color:var(--text3);margin-top:8px;text-align:center;">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</div>
@@ -1067,15 +1078,14 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
         <div class="footer-col-title">Контакты</div>
         <div class="footer-col">
           <a href="https://instagram.com" target="_blank">Instagram</a>
-          <a href="https://t.me/qauym_media" target="_blank">Telegram</a>
-          <a href="https://wa.me/77001234567" target="_blank">WhatsApp</a>
+          <a href="https://wa.me/77066006506" target="_blank">WhatsApp</a>
           <a href="mailto:hello@qauym.media">Email</a>
         </div>
       </div>
     </div>
   </div>
   <div class="copyright-bar">
-    <span>© 2024 QAUYM MEDIA</span>
+    <span>© 2026 QAUYM MEDIA</span>
     <span>Алматы, Казахстан</span>
   </div>
 </footer>
@@ -1085,7 +1095,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div class="bottom-nav-logo">
-    <img src="logo.jpeg" alt="Q"/>
+    <img src="logo.png" alt="Q"/>
     <span style="font-size:15px;font-weight:800;color:var(--cyan2);letter-spacing:0.04em;">QAUYM</span>
   </div>
   <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:10px 22px;">Начать проект</a>
@@ -1101,6 +1111,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       <div class="modal-title" id="sm-title"></div>
       <div class="modal-desc" id="sm-desc"></div>
       <div class="modal-metrics" id="sm-metrics"></div>
+      <div id="sm-packages"></div>
       <div class="modal-details-title">Что включено</div>
       <div id="sm-details"></div>
       <div class="modal-btns">
@@ -1135,59 +1146,115 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 
 <script>
 /* ─── DATA ─── */
+const WA_NUMBER = '77066006506'; // ← замените на свой номер WhatsApp Business
+
 const SERVICES = [
-  {name:'Продюсирование',img:'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif',tags:['Production','Content','Strategy'],desc:'Полный цикл создания контента — от разработки стратегии и написания сценариев до финального монтажа и публикации. Мы берём на себя все смыслы вашего бренда и воплощаем их в контент, который работает.',metrics:[{v:'40+',l:'проектов'},{v:'150M+',l:'просмотров'},{v:'98%',l:'довольны'}],details:['Разработка контент-стратегии и редполитики','Написание сценариев и брифов под каждый формат','Полный видеопродакшн: съёмка, монтаж, цветокоррекция','Адаптация под все платформы: Instagram, TikTok, YouTube','Аналитика и оптимизация после публикации']},
-  {name:'Reels & TikTok',img:'https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif',tags:['Reels','TikTok','Viral'],desc:'Создаём короткий вертикальный контент, который останавливает скролл и конвертирует просмотры в продажи. Знаем алгоритмы обеих платформ и умеем делать контент, который системно выходит в рекомендации.',metrics:[{v:'5M+',l:'просмотров/мес'},{v:'12%',l:'средний ER'},{v:'×3',l:'рост продаж'}],details:['Анализ трендов и алгоритмов TikTok/Reels','Съёмка и монтаж вертикального контента','A/B тестирование заходов и хуков','Хэштег-стратегия и оптимизация под рекомендации','Еженедельная аналитика и корректировка курса']},
-  {name:'AI Продакшн',img:'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif',tags:['AI','Neural','Innovation'],desc:'Создаём уникальный контент с использованием нейросетей нового поколения: AI-видео, AI-изображения, AI-озвучка. Технологии позволяют делать быстрее и дешевле без потери качества.',metrics:[{v:'×5',l:'быстрее'},{v:'-60%',l:'стоимость'},{v:'100%',l:'уникальность'}],details:['Генерация видеоконтента через Sora/Runway','AI-аватары и виртуальные спикеры','Автоматическая озвучка на разных языках','AI-обработка и улучшение фото и видео','Интеграция AI-инструментов в производственный процесс']},
-  {name:'SMM 360°',img:'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif',tags:['SMM','Community','Growth'],desc:'Стратегическое управление социальными сетями под ключ. Создаём активные сообщества вокруг вашего продукта, которые становятся двигателем роста и продаж.',metrics:[{v:'2000+',l:'клиентов'},{v:'+300%',l:'рост охватов'},{v:'98%',l:'retention'}],details:['Разработка SMM-стратегии на 3–6 месяцев','Контент-план и производство всех форматов','Комьюнити-менеджмент и работа с аудиторией','Таргетированная реклама и продвижение','Ежемесячные отчёты и стратегические сессии']},
-  {name:'AI Ассистент',img:'https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif',tags:['AI','Automation','Sales'],desc:'Разрабатываем и внедряем кастомных AI-ботов, которые автоматизируют коммуникации, квалифицируют лиды и помогают закрывать сделки 24/7 без участия менеджеров.',metrics:[{v:'+200%',l:'лидов/мес'},{v:'-70%',l:'нагрузка'},{v:'24/7',l:'работа'}],details:['Разработка AI-чатбота под вашу нишу','Интеграция с CRM, Telegram, WhatsApp, Instagram','Обучение бота на вашей базе знаний','Автоматическая квалификация и прогрев лидов','Аналитика диалогов и улучшение скриптов']},
-  {name:'Индивидуальные решения',img:'https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif',tags:['Custom','Branding','Launch'],desc:'Для тех, кому нужно что-то совершенно уникальное. Разработка спецпроектов, комплексный брендинг, стратегия запуска новых продуктов с нуля.',metrics:[{v:'15+',l:'спецпроектов'},{v:'$2M+',l:'привлечено'},{v:'100%',l:'NDA'}],details:['Брендинг и визуальная идентичность','Стратегия запуска продукта или бренда','Спецпроекты и коллаборации','Разработка питч-деков и инвест-материалов','Консалтинг по digital-маркетингу']}
+  {
+    name:'Продюсирование под ключ',
+    icon:'🎬',
+    img:'adlet1.png',
+    tags:['Продюсирование','Контент','Стратегия'],
+    desc:'Комплексное сопровождение проекта от идеи до результата. Мы берём на себя стратегию, создание контента, маркетинг и продвижение. Формируем команду под ваши задачи.',
+    metrics:[{v:'60+',l:'роликов/мес'},{v:'150M+',l:'просмотров'},{v:'98%',l:'довольны'}],
+    packages:['Полная команда (маркетинг + продакшн)','Базовая команда (продакшн)','Собрать свою команду'],
+    details:['Продюсер — управление и контент-стратегия','SMM-специалист и таргетолог','Видеограф и монтажёр','Сценарист для всех форматов','AI-креатор для масштабного производства','AI-ассистент и CRM-интеграция']
+  },
+  {
+    name:'Reels под ключ',
+    icon:'📱',
+    img:'adlet2.png',
+    tags:['Reels','TikTok','Viral'],
+    desc:'Создаём короткие видео, которые привлекают внимание, увеличивают охваты и продвигают ваш бренд. Команда берёт на себя всё — от идеи до готового ролика.',
+    metrics:[{v:'50',l:'роликов/мес'},{v:'34.2M',l:'просмотры клиентов'},{v:'×4',l:'рост охватов'}],
+    packages:['15 Reels в месяц','30 Reels в месяц','50 Reels в месяц'],
+    details:['Разработка идей и сценариев для каждого ролика','Полная организация съёмочного процесса','Профессиональный монтаж и обработка','Продюсер, сценарист, видеограф, монтажёр','Публикация и аналитика результатов','Оптимизация под алгоритмы TikTok и Instagram']
+  },
+  {
+    name:'AI Reels',
+    icon:'🤖',
+    img:'kasiet1.png',
+    tags:['AI','Нейросети','Контент'],
+    desc:'Создаём короткие видео с использованием искусственного интеллекта. Быстрее и масштабнее без потери качества.',
+    metrics:[{v:'×5',l:'быстрее'},{v:'-60%',l:'стоимость'},{v:'50',l:'роликов/мес'}],
+    packages:['15 AI-роликов','20 AI-роликов','30 AI-роликов','50 AI-роликов'],
+    details:['Разработка идей и сценариев','Создание роликов через AI-инструменты','Монтаж и подготовка к публикации','Продюсер + AI-креатор + сценарист','Масштабное производство контента','Уникальный визуальный стиль']
+  },
+  {
+    name:'Social Media Team',
+    icon:'🌐',
+    img:'zhanmukan1.png',
+    tags:['SMM','Таргет','Реклама'],
+    desc:'Комплексная работа над аккаунтом: контент, ведение соцсетей и продвижение через рекламу. Выстраиваем систему, которая привлекает аудиторию и растит бизнес.',
+    metrics:[{v:'2000+',l:'клиентов'},{v:'+300%',l:'охваты'},{v:'98%',l:'retention'}],
+    packages:['Базовый пакет','Стандарт','Расширенный'],
+    details:['SMM-специалист — ведение аккаунта и контент-план','Таргетолог — настройка и оптимизация рекламы','Мобилограф — съёмка фото и видео','Создание и публикация контента','Аналитика и ежемесячные отчёты','Рост подписчиков и вовлечённости']
+  },
+  {
+    name:'AI Автоматизация + CRM',
+    icon:'💬',
+    img:'kasiet3.png',
+    tags:['AI','CRM','Автоматизация'],
+    desc:'Внедряем AI-ассистента и CRM-систему для автоматизации общения с клиентами, обработки заявок и управления бизнес-процессами 24/7.',
+    metrics:[{v:'+200%',l:'лидов'},{v:'-70%',l:'нагрузка'},{v:'24/7',l:'работа'}],
+    packages:['AI Ассистент — от 170 000 ₸','AI + CRM Базовый — 250 000 ₸','AI + CRM Премиум — 500 000 ₸'],
+    details:['Настройка AI-ассистента под вашу нишу','Интеграция с CRM, Telegram, WhatsApp, Instagram','Автоматизация обработки заявок','Сценарии общения с клиентами','Продюсер + AI-специалист + CRM-специалист','Аналитика диалогов и оптимизация']
+  },
+  {
+    name:'Индивидуальные решения',
+    icon:'✨',
+    img:'adlet3.png',
+    tags:['Custom','Branding','Launch'],
+    desc:'Для тех, кому нужно что-то совершенно уникальное. Спецпроекты, брендинг, запуск продуктов с нуля. Берёмся за задачи любой сложности.',
+    metrics:[{v:'15+',l:'спецпроектов'},{v:'100%',l:'NDA'},{v:'∞',l:'возможности'}],
+    packages:['Брендинг и визуальная идентичность','Стратегия запуска продукта','Спецпроект под ключ'],
+    details:['Брендинг и визуальная идентичность','Стратегия запуска продукта или бренда','Спецпроекты и коллаборации','Разработка питч-деков','Консалтинг по digital-маркетингу','Любой формат — обсудим индивидуально']
+  }
 ];
 
 const CASES = [
   {
     id:1, filter:'video smm',
-    result:'34.2M просмотров', resultColor:'#A0D2FF',
-    title:'Адлет — вирусный контент в TikTok',
-    tags:['TikTok','Viral','Video'],
-    img:'adlet1.png',
+    result:'Adilet Art', resultColor:'#A0D2FF',
+    title:'Adilet Art — продюсирование и контент',
+    tags:['TikTok','Reels','Продюсирование'],
+    img:'adlet_face.png',
     imgs:['adlet1.png','adlet2.png','adlet3.png','adlet4.png','adlet5.png','adlet6.png'],
-    desc:'Создали серию вирусных роликов для TikTok-аккаунта Адлета. Контент набрал десятки миллионов просмотров органически — без единого тенге на рекламу. Системная работа над хуками, монтажом и форматами вывела аккаунт в топ рекомендаций.',
+    desc:'Работали с Adilet Art как продюсерская команда, обеспечивая комплексное продвижение и контент. Создали серию вирусных роликов, которые набрали десятки миллионов просмотров органически — без рекламного бюджета.',
     metrics:[{v:'34.2M',l:'просмотры'},{v:'7.1M',l:'лучший ролик'},{v:'95%',l:'органика'}],
-    details:['Разработка контент-стратегии под алгоритмы TikTok','Написание сценариев с сильными заходами','Монтаж и визуальная подача под вертикальный формат','Системный выход в рекомендации без рекламного бюджета','Рост просмотров от 78K до 34.2M на одном ролике']
+    details:['Комплексное продюсирование и контент-стратегия','Разработка сценариев с сильными заходами','Монтаж и визуальная подача под вертикальный формат','Системный выход в рекомендации без рекламы','Рост просмотров от 78K до 34.2M на одном ролике','Более 60 роликов создано в рамках работы']
   },
   {
-    id:2, filter:'smm brand',
-    result:'3.1M просмотров', resultColor:'#C8E8FF',
-    title:'Жанмукан — SMM и продюсирование',
-    tags:['SMM','Продюсирование','Reels'],
-    img:'zhanmukan1.png',
+    id:2, filter:'smm brand video',
+    result:'Zhan Mukhanov', resultColor:'#C8E8FF',
+    title:'Zhan Mukhanov — контент-продюсирование',
+    tags:['Reels','Stories','Продюсирование'],
+    img:'zhan_face.png',
     imgs:['zhanmukan1.png','zhanmukan2.png','zhanmukan3.png','zhanmukan4.png'],
-    desc:'Полное продюсирование контент-стратегии для медийной личности. Создали серию форматов, которые резонируют с широкой аудиторией: интервью, реакции, личные истории. Один ролик собрал 3.1M просмотров.',
-    metrics:[{v:'3.1M',l:'просмотры'},{v:'609K',l:'вовлечённость'},{v:'×4',l:'рост охватов'}],
-    details:['Разработка линейки контент-форматов','Сценарии для интервью и реакций','Монтаж под разные платформы','Рост вовлечённости аудитории в 4 раза','Системный выход на миллионные охваты']
+    desc:'В роли контент-продюсера создавали идеи и реализовывали проекты для Zhan Mukhanov. Обеспечивали системный поток качественного и вовлекающего контента для Instagram и TikTok.',
+    metrics:[{v:'60+',l:'роликов/мес'},{v:'3.1M',l:'просмотры'},{v:'×4',l:'рост охватов'}],
+    details:['Разработка концепций и идей для проектов','Съёмка Reels, сторис и рекламных роликов','Стратегия публикаций и сторисмейкер','Монтаж более 60 роликов в месяц','Рост вовлечённости аудитории и охватов','Единый визуальный стиль публикаций']
   },
   {
     id:3, filter:'smm brand',
-    result:'3.9M просмотров/мес', resultColor:'#5BB8FF',
-    title:'Касиет — образовательный контент',
-    tags:['Education','TikTok','Instagram'],
-    img:'kasiet1.png',
+    result:'Kasiet School', resultColor:'#5BB8FF',
+    title:'Kasiet School — Reels Production',
+    tags:['Instagram','TikTok','Личный бренд'],
+    img:'жанар.jpeg',
     imgs:['kasiet1.png','kasiet2.png','kasiet3.png','kasiet4.png','kasiet5.png'],
-    desc:'Вывели образовательный аккаунт о казахских орнаментах с 9 950 до 37 000 подписчиков. Просмотры публикаций выросли до 3.9M в месяц — рост +6 698%. Построили контент-машину, которая генерирует охваты органически.',
-    metrics:[{v:'3.9M',l:'просмотров/мес'},{v:'+6699%',l:'рост просмотров'},{v:'37K',l:'подписчиков'}],
-    details:['Аудит и полная перестройка контент-стратегии','Разработка виральных форматов для образовательной ниши','Рост с 9 950 до 37 000 подписчиков','Просмотры: +3.8M за отчётный период','Лайки выросли с 3K до 166K (+4 773%)','Репосты: +15K (+1 725%)']
+    desc:'Работали по услуге Reels Production — развивали личный бренд Жанар Муратовой и увеличивали продажи через Instagram и TikTok. За 2 недели — огромные охваты, прирост подписчиков, рост узнаваемости.',
+    metrics:[{v:'3.9M',l:'просмотров/мес'},{v:'+6699%',l:'рост'},{v:'37K',l:'подписчиков'}],
+    details:['Съёмка и монтаж Reels (старт 15 → 50 роликов/мес)','Полное продюсирование и контент-стратегия','Сторисмейкер и регулярное сопровождение','Просмотры выросли с ~56K до 3.9M/мес','Лайки: +163K (+4 773%)','Репосты: +15K (+1 725%)']
   },
   {
     id:4, filter:'ecom smm',
-    result:'+500% продажи', resultColor:'#A0D2FF',
-    title:'Монобукет — E-commerce контент',
-    tags:['E-commerce','SMM','Reels'],
-    img:'zhanmukan2.png',
+    result:'Mono Bouquet ', resultColor:'#A0D2FF',
+    title:'Mono Bouquet — вирусные Reels',
+    tags:['E-commerce','Reels','Соц.эксперименты'],
+    img:'монобукет.jpeg',
     imgs:['zhanmukan1.png','zhanmukan3.png','zhanmukan4.png','zhanmukan2.png'],
-    desc:'Создали контент-стратегию для флористического бренда, нацеленную на конверсию в продажи. Короткие видео с реальными покупателями и эмоциональные истории увеличили продажи в 5 раз.',
-    metrics:[{v:'+500%',l:'продажи'},{v:'822K',l:'просмотры'},{v:'14%',l:'конверсия'}],
-    details:['Съёмка и монтаж продуктового контента','UGC-контент с реальными клиентами','Таргетированная реклама на тёплую аудиторию','Серия вирусных Reels про процесс создания букетов','Рост онлайн-заказов в 5 раз за квартал']
+    desc:'За 2 недели работы создали 10 роликов для продвижения флористического бренда. Форматы — соц. эксперименты и пранки, ориентированные на вовлечение аудитории.',
+    metrics:[{v:'15K',l:'подписчиков'},{v:'4 ролика',l:'вирусных'},{v:'2 недели',l:'срок'}],
+    details:['Съёмка и монтаж 10 роликов за 2 недели','Форматы: соц. эксперименты и пранки','4 ролика набрали большие охваты','Рост подписчиков с 4 000 до 15 000','Эффективное вовлечение аудитории','Повышение узнаваемости бренда']
   }
 ];
 
@@ -1269,7 +1336,14 @@ function openServiceModal(idx){
   document.getElementById('sm-title').textContent = s.name;
   document.getElementById('sm-desc').textContent = s.desc;
   document.getElementById('sm-tags').innerHTML = s.tags.map(t=>`<span class="tag" style="color:var(--cyan2);border-color:rgba(160,210,255,0.2)">${t}</span>`).join('');
-  buildMetrics(s.metrics,'sm-metrics');buildDetails(s.details,'sm-details');
+  buildMetrics(s.metrics,'sm-metrics');
+  // Packages
+  const pkgEl = document.getElementById('sm-packages');
+  if(pkgEl && s.packages){
+    pkgEl.innerHTML = `<div class="modal-details-title" style="margin-top:24px;margin-bottom:12px;">Пакеты</div>`+
+      s.packages.map(p=>`<div class="modal-detail-row"><span class="check-icon" style="color:var(--cyan2)">◆</span><span class="modal-detail-text">${p}</span></div>`).join('');
+  }
+  buildDetails(s.details,'sm-details');
   openModal('service-modal');
 }
 function openCaseModal(c){
@@ -1324,12 +1398,33 @@ partnerArea.addEventListener('mousemove',e=>{
   requestAnimationFrame(()=>{ setTimeout(()=>{ img.style.opacity='0';img.style.transform=`rotate(${rot}deg) scale(0.82)`;setTimeout(()=>img.remove(),900); },80); });
 });
 
-/* ─── FORM SUBMIT ─── */
+/* ─── FORM → WHATSAPP ─── */
 function submitForm(){
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const company = document.getElementById('f-company').value.trim();
+  const service = document.getElementById('f-service').value;
+  const msg     = document.getElementById('f-message').value.trim();
+
+  if(!name || !phone){
+    alert('Пожалуйста, укажите имя и телефон');
+    return;
+  }
+
+  const text =
+    `🚀 *Новая заявка — QAUYM MEDIA*\n\n` +
+    `👤 *Имя:* ${name}\n` +
+    `📱 *Телефон:* ${phone}\n` +
+    (company ? `🏢 *Компания:* ${company}\n` : '') +
+    (service ? `🎯 *Услуга:* ${service}\n` : '') +
+    (msg     ? `\n💬 *О проекте:*\n${msg}` : '');
+
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
+
   const btn = document.querySelector('.form-submit');
-  btn.textContent = '✓ Заявка отправлена!';
+  btn.textContent = '✓ Открываем WhatsApp...';
   btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
-  setTimeout(()=>{ btn.textContent='Отправить заявку →';btn.style.background=''; },3000);
+  setTimeout(()=>{ btn.textContent='Отправить заявку →'; btn.style.background=''; }, 3000);
 }
 
 /* ─── SCROLL REVEAL ─── */
