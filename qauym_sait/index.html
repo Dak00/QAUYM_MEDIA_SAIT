@@ -184,7 +184,7 @@ main{position:relative;z-index:2;}
 .marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:3;}
 .marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
 .marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
-.marquee-track{display:flex;animation:marquee 35s linear infinite;width:max-content;}
+.marquee-track{display:flex;animation:marquee 25s linear infinite;width:max-content;}
 .marquee-track img{height:240px;object-fit:cover;margin:0 10px;border-radius:18px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,0.4);flex-shrink:0;}
 
 /* ═══ SECTION COMMONS ═══ */
@@ -718,8 +718,8 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       <span class="service-arrow">↗</span>
       <span class="service-icon">✨</span>
       <div class="service-name">Инд. решения</div>
-      <div class="service-preview">Спецпроекты, брендинг, запуск продуктов с нуля. Берёмся за задачи любой сложности.</div>
-      <div class="service-hint">Подробнее →</div>
+      <div class="service-preview">Не нужен весь пакет? Выбери только нужных специалистов — таргетолог, SMM, видеограф, монтажёр, AI-креатор. Платишь за то, что реально нужно.</div>
+      <div class="service-hint">Подобрать команду →</div>
     </div>
   </div>
 </section>
@@ -739,6 +739,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
     <button class="filter-btn" data-filter="smm">SMM</button>
     <button class="filter-btn" data-filter="brand">Branding</button>
     <button class="filter-btn" data-filter="ecom">E-commerce</button>
+    <button class="filter-btn" data-filter="ai">AI</button>
   </div>
   <div class="cases-grid anim" style="animation-delay:0.2s" id="cases-grid"></div>
 </section>
@@ -798,10 +799,6 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Alikhan Baizakov</div></div>
       <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Dake.zzz</div></div>
       <div class="client-chip"><div class="client-chip-dot"></div><div class="client-chip-name">Anara Batyrkhan</div></div>
-
-
-
-    </div>
   </div>
 </div>
 
@@ -869,7 +866,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
     </div>
     <div class="about-team-card">
       <div class="about-team-img">
-        <img src="logo.jpeg" alt="Founder"/>
+        <img src="IMG_6294.ARW" alt="Founder"/>
       </div>
       <div class="about-team-name">Основатель QAUYM</div>
       <div class="about-team-role">// CEO & Creative Director</div>
@@ -992,7 +989,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
       Работать<br/><em>с нами</em>
     </h2>
     <div class="partner-cta anim" style="animation-delay:0.15s">
-      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="logo.jpeg" alt=""/>
+      <img style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--cyan2);box-shadow:0 0 12px rgba(160,210,255,0.3);" src="лого.png" alt=""/>
       <a href="#contact" class="btn btn-primary" style="font-size:15px;padding:16px 36px;">Начать проект с нами →</a>
     </div>
   </div>
@@ -1010,10 +1007,8 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
         Ответим за 10 минут в рабочее время
       </div>
       <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;">
-        <a href="https://wa.me/77066006506" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
+        <a href="https://wa.me/77476444456" target="_blank" class="messenger-btn whatsapp-btn" style="max-width:280px;">
           <span>💬</span> Написать в WhatsApp
-        </a>
-
         </a>
       </div>
     </div>
@@ -1059,7 +1054,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-brand-logo">
-        <img src="logo.jpeg" alt="QAUYM"/>
+        <img src="лого.png" alt="QAUYM"/>
         <span class="footer-brand-name">QAUYM MEDIA</span>
       </div>
       <div class="footer-brand-desc">Digital Production Studio в Алматы. Создаём контент, строим аудитории, приводим клиентов.</div>
@@ -1078,14 +1073,14 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
         <div class="footer-col-title">Контакты</div>
         <div class="footer-col">
           <a href="https://instagram.com" target="_blank">Instagram</a>
-          <a href="https://wa.me/77066006506" target="_blank">WhatsApp</a>
+          <a href="https://wa.me/77476444456" target="_blank">WhatsApp</a>
           <a href="mailto:hello@qauym.media">Email</a>
         </div>
       </div>
     </div>
   </div>
   <div class="copyright-bar">
-    <span>© 2026 QAUYM MEDIA</span>
+    <span>© 2024 QAUYM MEDIA</span>
     <span>Алматы, Казахстан</span>
   </div>
 </footer>
@@ -1095,7 +1090,7 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div class="bottom-nav-logo">
-    <img src="logo.png" alt="Q"/>
+    <img src="лого.png" alt="Q"/>
     <span style="font-size:15px;font-weight:800;color:var(--cyan2);letter-spacing:0.04em;">QAUYM</span>
   </div>
   <a href="#contact" class="btn btn-primary" style="font-size:13px;padding:10px 22px;">Начать проект</a>
@@ -1146,13 +1141,13 @@ footer{max-width:1400px;margin:0 auto;padding:60px 48px 32px;border-top:1px soli
 
 <script>
 /* ─── DATA ─── */
-const WA_NUMBER = '77066006506'; // ← замените на свой номер WhatsApp Business
+const WA_NUMBER = '77476444456'; // ← замените на свой номер WhatsApp Business
 
 const SERVICES = [
   {
     name:'Продюсирование под ключ',
     icon:'🎬',
-    img:'adlet1.png',
+    img:'Epic_motion_design_poster_for_202605111124.jpeg',
     tags:['Продюсирование','Контент','Стратегия'],
     desc:'Комплексное сопровождение проекта от идеи до результата. Мы берём на себя стратегию, создание контента, маркетинг и продвижение. Формируем команду под ваши задачи.',
     metrics:[{v:'60+',l:'роликов/мес'},{v:'150M+',l:'просмотров'},{v:'98%',l:'довольны'}],
@@ -1162,7 +1157,7 @@ const SERVICES = [
   {
     name:'Reels под ключ',
     icon:'📱',
-    img:'adlet2.png',
+    img:'reels_and_tiktok_poster.jpeg',
     tags:['Reels','TikTok','Viral'],
     desc:'Создаём короткие видео, которые привлекают внимание, увеличивают охваты и продвигают ваш бренд. Команда берёт на себя всё — от идеи до готового ролика.',
     metrics:[{v:'50',l:'роликов/мес'},{v:'34.2M',l:'просмотры клиентов'},{v:'×4',l:'рост охватов'}],
@@ -1172,7 +1167,7 @@ const SERVICES = [
   {
     name:'AI Reels',
     icon:'🤖',
-    img:'kasiet1.png',
+    img:'Futuristic_AI_content_creation_poster_202605111118.jpeg',
     tags:['AI','Нейросети','Контент'],
     desc:'Создаём короткие видео с использованием искусственного интеллекта. Быстрее и масштабнее без потери качества.',
     metrics:[{v:'×5',l:'быстрее'},{v:'-60%',l:'стоимость'},{v:'50',l:'роликов/мес'}],
@@ -1182,7 +1177,7 @@ const SERVICES = [
   {
     name:'Social Media Team',
     icon:'🌐',
-    img:'zhanmukan1.png',
+    img:'Premium_cinematic_motion-design_poster_for_202605111119.jpeg',
     tags:['SMM','Таргет','Реклама'],
     desc:'Комплексная работа над аккаунтом: контент, ведение соцсетей и продвижение через рекламу. Выстраиваем систему, которая привлекает аудиторию и растит бизнес.',
     metrics:[{v:'2000+',l:'клиентов'},{v:'+300%',l:'охваты'},{v:'98%',l:'retention'}],
@@ -1192,7 +1187,7 @@ const SERVICES = [
   {
     name:'AI Автоматизация + CRM',
     icon:'💬',
-    img:'kasiet3.png',
+    img:'Futuristic_AI_automation_and_CRM_202605111121.jpeg',
     tags:['AI','CRM','Автоматизация'],
     desc:'Внедряем AI-ассистента и CRM-систему для автоматизации общения с клиентами, обработки заявок и управления бизнес-процессами 24/7.',
     metrics:[{v:'+200%',l:'лидов'},{v:'-70%',l:'нагрузка'},{v:'24/7',l:'работа'}],
@@ -1202,12 +1197,28 @@ const SERVICES = [
   {
     name:'Индивидуальные решения',
     icon:'✨',
-    img:'adlet3.png',
-    tags:['Custom','Branding','Launch'],
-    desc:'Для тех, кому нужно что-то совершенно уникальное. Спецпроекты, брендинг, запуск продуктов с нуля. Берёмся за задачи любой сложности.',
-    metrics:[{v:'15+',l:'спецпроектов'},{v:'100%',l:'NDA'},{v:'∞',l:'возможности'}],
-    packages:['Брендинг и визуальная идентичность','Стратегия запуска продукта','Спецпроект под ключ'],
-    details:['Брендинг и визуальная идентичность','Стратегия запуска продукта или бренда','Спецпроекты и коллаборации','Разработка питч-деков','Консалтинг по digital-маркетингу','Любой формат — обсудим индивидуально']
+    img:'Luxury_abstract_motion_design_poster_202605111122.jpeg',
+    tags:['Гибко','Под задачу','Команда'],
+    desc:'Собери команду под свою задачу. Не нужен весь пакет — просто выбери нужных специалистов. Только то, что реально нужно твоему бизнесу.',
+    metrics:[{v:'8',l:'специалистов'},{v:'100%',l:'гибкость'},{v:'от 1',l:'специалиста'}],
+    packages:[
+      '🎯 Продюсер — стратегия и управление проектом',
+      '📱 SMM-специалист — ведение социальных сетей',
+      '🎯 Таргетолог — настройка и оптимизация рекламы',
+      '🎥 Видеограф — профессиональная съёмка контента',
+      '✂️ Монтажёр — монтаж и подготовка видео',
+      '🤖 AI-креатор — создание роликов с помощью ИИ',
+      '💬 AI-ассистент — автоматизация процессов и CRM',
+      '✍️ Сценарист — разработка идей и сценариев'
+    ],
+    details:[
+      'Можно взять одного специалиста или собрать команду',
+      'Платишь только за то, что реально нужно',
+      'Гибкие форматы: разово, на проект, на месяц',
+      'Быстрый старт — без долгих согласований',
+      'Каждый специалист — проверенный профи с кейсами',
+      'Масштабируй команду по мере роста задач'
+    ]
   }
 ];
 
@@ -1239,7 +1250,7 @@ const CASES = [
     result:'Kasiet School', resultColor:'#5BB8FF',
     title:'Kasiet School — Reels Production',
     tags:['Instagram','TikTok','Личный бренд'],
-    img:'жанар.jpeg',
+    img:'kasiet1.png',
     imgs:['kasiet1.png','kasiet2.png','kasiet3.png','kasiet4.png','kasiet5.png'],
     desc:'Работали по услуге Reels Production — развивали личный бренд Жанар Муратовой и увеличивали продажи через Instagram и TikTok. За 2 недели — огромные охваты, прирост подписчиков, рост узнаваемости.',
     metrics:[{v:'3.9M',l:'просмотров/мес'},{v:'+6699%',l:'рост'},{v:'37K',l:'подписчиков'}],
@@ -1247,7 +1258,7 @@ const CASES = [
   },
   {
     id:4, filter:'ecom smm',
-    result:'Mono Bouquet ', resultColor:'#A0D2FF',
+    result:'Mono Bouquet', resultColor:'#A0D2FF',
     title:'Mono Bouquet — вирусные Reels',
     tags:['E-commerce','Reels','Соц.эксперименты'],
     img:'монобукет.jpeg',
@@ -1255,6 +1266,69 @@ const CASES = [
     desc:'За 2 недели работы создали 10 роликов для продвижения флористического бренда. Форматы — соц. эксперименты и пранки, ориентированные на вовлечение аудитории.',
     metrics:[{v:'15K',l:'подписчиков'},{v:'4 ролика',l:'вирусных'},{v:'2 недели',l:'срок'}],
     details:['Съёмка и монтаж 10 роликов за 2 недели','Форматы: соц. эксперименты и пранки','4 ролика набрали большие охваты','Рост подписчиков с 4 000 до 15 000','Эффективное вовлечение аудитории','Повышение узнаваемости бренда']
+  },
+  {
+    id:5, filter:'video brand',
+    result:'30+ концертных роликов', resultColor:'#C8E8FF',
+    title:'Aspan FM & Lux FM — Radio производство',
+    tags:['Концерты','Видеограф','Мобилограф'],
+    img:'aspanFM.jpeg',
+    desc:'Профессиональная съёмка концертов и мероприятий для радиостанций Aspan FM и Lux FM. Обеспечивали полный видеопродакшн для Instagram, TikTok и сайтов радиостанций.',
+    metrics:[{v:'30+',l:'роликов'},{v:'2',l:'радиостанции'},{v:'100%',l:'атмосфера'}],
+    details:['Съёмка концертов и мероприятий (30+ роликов)','Видеограф + мобилограф на каждом мероприятии','Монтаж коротких видео для соцсетей','Подготовка контента для Instagram, TikTok и сайтов','Повышение узнаваемости бренда радиостанций','Имиджевые материалы для рекламных целей']
+  },
+  {
+    id:6, filter:'smm brand video',
+    result:'100+ инфлюенсеров', resultColor:'#5BB8FF',
+    title:'Блогеры и инфлюенсеры — контент-продакшн',
+    tags:['Инфлюенсеры','Reels','Охваты'],
+    img:'блогеры.jpeg',
+    desc:'Сотрудничали с Ләйлә Сұлтанқызы, Абай Асылхан, Аша Матай, Omari.to, Анара Батырхан, Камила Саяновна, Алихан Байзаков, Dake.zzz и более 100 микроблогерами. Создавали контент, который увеличивает охваты и продажи.',
+    metrics:[{v:'100+',l:'инфлюенсеров'},{v:'×3',l:'рост охватов'},{v:'8',l:'топ-блогеров'}],
+    details:['Разработка концепций и съёмка Reels для соцсетей','Монтаж, сторисмейкер, подготовка к публикации','Работа с Ләйлә Сұлтанқызы, Абай Асылхан, Аша Матай','Omari.to, Анара Батырхан, Камила Саяновна и другие','Более 100 микроблогеров и лидеров мнений','Масштабный охват и рост узнаваемости брендов']
+  },
+  {
+    id:7, filter:'video brand',
+    result:'70–100 концертов', resultColor:'#A0D2FF',
+    title:'Певцы и артисты — концертный контент',
+    tags:['Концерты','Клипы','Артисты'],
+    img:'концерты.jpeg',
+    desc:'МузАрт, Kairat Nurtas, Ilhan, Adam, 6elucci, Gazizkhan, Turar, Baxa.sm, Ernar Amandyk, Serik Ibragimov, Aikyn — и более 100 других артистов. Создавали концертный контент, тизеры, сниппеты и релизы.',
+    metrics:[{v:'100+',l:'артистов'},{v:'70–100',l:'концертов'},{v:'клипы',l:'по запросу'}],
+    details:['Полная съёмка концертов и живых выступлений','Тизеры и сниппеты для промо и презентаций','Релизы для публикаций и продвижения','Клипы по необходимости','Монтаж и подготовка к публикации','Поддержка имиджа и визуальной узнаваемости артистов']
+  },
+  {
+    id:8, filter:'smm',
+    result:'ROAS до 8x', resultColor:'#C8E8FF',
+    title:'Таргетированная реклама — ROI кейсы',
+    tags:['Таргет','Реклама','ROI'],
+    img:'таргет.jpeg',
+    imgs:['kasiet4.png','kasiet5.png','kasiet6.jpeg','kasiet7.jpeg'],
+    desc:'Настраиваем таргетированную рекламу, которая приносит реальные заявки, а не просто клики. Работаем с воронками, A/B тестированием и аналитикой — чтобы каждый вложенный тенге возвращался прибылью.',
+    metrics:[{v:'ROAS 8x',l:'лучший результат'},{v:'-40%',l:'стоимость заявки'},{v:'+300%',l:'лиды'}],
+    details:['Анализ аудитории и конкурентов перед запуском','A/B тестирование креативов и аудиторий','Оптимизация в реальном времени под результат','Снижение стоимости заявки на 30–50%','Масштабирование работающих связок','Еженедельная аналитика и отчётность']
+  },
+  {
+    id:9, filter:'ai video',
+    result:'AI Video', resultColor:'#5BB8FF',
+    title:'AI Video — вирусные ролики для бизнеса',
+    tags:['AI Видео','Вирусный','Уникальный контент'],
+    img:'срм.jpeg',
+    imgs:['kasiet2.png','kasiet3.png','kasiet1.png','kasiet5.png'],
+    desc:'Создаём вирусные AI-видео под любой стиль и персонажа твоего бренда. Контент, который заходит в рекомендации и набирает миллионные охваты — быстро, масштабно, под твой бизнес.',
+    metrics:[{v:'1M+',l:'просмотры'},{v:'×5',l:'быстрее'},{v:'100%',l:'уникальность'}],
+    details:['Вирусные ролики под персонаж и стиль вашего бренда','Любой формат: юмор, эмоции, эксперименты, триггеры','Масштабное производство — 30–50 роликов в месяц','Контент под алгоритмы TikTok, Instagram Reels, YouTube Shorts','Проверенные форматы, которые набирают миллионы просмотров','Быстро и без дорогостоящих съёмочных процессов']
+  },
+  {
+    id:10, filter:'ai',
+    result:'24/7 автоматизация', resultColor:'#A0D2FF',
+    title:'AI Автоматизация + CRM — под ключ',
+    tags:['AI','CRM','Автоматизация'],
+    img:'срм11111jpeg.jpeg',
+    imgs:['kasiet6.jpeg','kasiet7.jpeg','kasiet3.png','kasiet4.png'],
+    desc:'Внедряем AI-ассистента и CRM-систему, которые работают вместо вас: отвечают клиентам, квалифицируют лиды и закрывают сделки 24/7. Бизнес работает — пока ты занимаешься главным.',
+    metrics:[{v:'24/7',l:'работа'},{v:'-70%',l:'нагрузка'},{v:'+200%',l:'лиды'}],
+    details:['Настройка AI-ассистента под вашу нишу и скрипты','Интеграция с WhatsApp, Instagram, Telegram и CRM','Автоматическая квалификация и прогрев лидов','Сценарии общения — как живой менеджер','AI Ассистент | AI+CRM ','Аналитика диалогов и постоянная оптимизация']
   }
 ];
 
